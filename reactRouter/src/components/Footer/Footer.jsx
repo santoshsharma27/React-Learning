@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-y">
+    <footer className="border-y bg-white">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -14,12 +14,12 @@ export default function Footer() {
               />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900">
                 Resources
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="font-medium text-gray-500">
                 <li className="mb-4">
                   <Link to="/" className="hover:underline">
                     Home
@@ -33,13 +33,13 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900">
                 Follow us
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="font-medium text-gray-500">
                 <li className="mb-4">
                   <a
-                    href="https://github.com/hiteshchoudhary"
+                    href="https://github.com/santoshsharma27"
                     className="hover:underline"
                     target="_blank"
                     rel="noreferrer"
@@ -55,10 +55,10 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900">
                 Legal
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="font-medium text-gray-500">
                 <li className="mb-4">
                   <Link to="#" className="hover:underline">
                     Privacy Policy
@@ -82,10 +82,10 @@ export default function Footer() {
             </a>
             . All Rights Reserved.
           </span>
-          <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+          <div className="mt-4 flex space-x-5 sm:mt-0 sm:justify-center">
             <Link to="#" className="text-gray-500 hover:text-gray-900">
               <svg
-                className="w-4 h-4"
+                className="h-4 w-4"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -101,7 +101,7 @@ export default function Footer() {
             </Link>
             <Link to="#" className="text-gray-500">
               <svg
-                className="w-4 h-4"
+                className="h-4 w-4"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -113,7 +113,7 @@ export default function Footer() {
             </Link>
             <Link to="#" className="text-gray-500">
               <svg
-                className="w-4 h-4"
+                className="h-4 w-4"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -129,7 +129,7 @@ export default function Footer() {
             </Link>
             <Link to="#" className="text-gray-500">
               <svg
-                className="w-4 h-4"
+                className="h-4 w-4"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -145,7 +145,7 @@ export default function Footer() {
             </Link>
             <Link to="#" className="text-gray-500">
               <svg
-                className="w-4 h-4"
+                className="h-4 w-4"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
