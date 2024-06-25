@@ -7,8 +7,10 @@ function Search() {
   const [isResultVisible, setIsResultVisible] = useState(false);
   const [cache, setCache] = useState({});
 
-  useEffect(() => {
-    async function fetchData() {
+  async function fetchData() {
+    if (cache[searchText]) {
+      setSearchResults(cache[searchText]);
+    } else {
       try {
         setIsLoading(true);
         const res = await fetch(
@@ -16,7 +18,7 @@ function Search() {
         );
         if (!res.ok) throw new Error("Something went wrong with fetching data");
         const data = await res.json();
-        console.log(data[1]);
+        cache[searchText] = data[1];
         setSearchResults(data[1]);
       } catch (err) {
         console.log(err.message);
@@ -24,8 +26,14 @@ function Search() {
         setIsLoading(false);
       }
     }
+  }
 
-    fetchData();
+  useEffect(() => {
+    // Debouncing
+    const id = setTimeout(() => {
+      fetchData();
+    }, 300);
+    return () => clearTimeout(id);
   }, [searchText]);
 
   return (
