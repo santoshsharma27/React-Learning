@@ -4,6 +4,7 @@ import Accordion from "./components/Accordion";
 import ImageSlider from "./components/ImageSlider";
 import Error from "./components/Error";
 import Pagination from "./components/Pagination";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="accordion" element={<Accordion />} />
         <Route path="imageSlider" element={<ImageSlider />} />
         <Route path="pagination" element={<Pagination />} />
+        <Route path="search" element={<Search />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
