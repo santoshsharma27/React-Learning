@@ -3,7 +3,7 @@ import Body from "./components/Body";
 import Accordion from "./components/Accordion";
 import ImageSlider from "./components/ImageSlider";
 import Error from "./components/Error";
-import Pagination from "./components/Pagination";
+import Pagination from "./components/pagination/Pagination";
 import Search from "./components/Search";
 
 function App() {

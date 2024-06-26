@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import Shimmer from "./Shimmer";
+import Shimmer from "../Shimmer";
 
-const LIMIT = 5;
+const LIMIT = 12;
 
 function Pagination() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
-  const [noOfPages, setNoOfPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -24,7 +24,7 @@ function Pagination() {
         const data = await res.json();
         console.log(data);
         setProducts(data.products);
-        setNoOfPages(data.total / LIMIT);
+        setTotalPages(Math.ceil(data.total / LIMIT));
       } catch (err) {
         console.log(err.message);
       } finally {
@@ -36,47 +36,31 @@ function Pagination() {
   }, [currentPage]);
 
   return (
-    <div>
-      <div className="flex flex-wrap">
+    <div className="pt-5">
+      {isLoading && <Shimmer />}
+      <div className="flex flex-wrap justify-center">
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
-        {isLoading && <Shimmer />}
       </div>
+
       <div className="cursor-pointer p-10 text-center">
-        {currentPage > 0 && (
-          <span
-            onClick={() => {
-              setCurrentPage((currentPage) => currentPage - 1);
-            }}
-          >
-            Prev
-          </span>
-        )}
-        {[...Array(noOfPages.length).keys()].map((pN) => (
-          <span
+        {[...Array(totalPages).keys()].map((number) => (
+          <a
             className={
-              "p-4 text-xl" + (pN === currentPage && "font-bold underline")
+              "p-4 text-xl" + (number === currentPage && "font-bold underline")
             }
-            key={pN}
+            key={number}
             onClick={() => {
-              setCurrentPage(pN);
+              setCurrentPage(number);
             }}
           >
-            {pN + 1}
-          </span>
+            {number + 1}
+          </a>
         ))}
-        {currentPage < noOfPages - 1 && (
-          <span
-            onClick={() => {
-              setCurrentPage((currentPage) => currentPage + 1);
-            }}
-          >
-            Next
-          </span>
-        )}
       </div>
     </div>
   );
 }
+
 export default Pagination;
