@@ -3,7 +3,8 @@ import UsersList from "./components/UsersList";
 import { initialUsers } from "./utils/constant";
 
 function App() {
-  const [users, setUsers] = useState(initialUsers);
+  const localUser = JSON.parse(localStorage.getItem("users"));
+  const [users, setUsers] = useState(localUser || initialUsers);
 
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
