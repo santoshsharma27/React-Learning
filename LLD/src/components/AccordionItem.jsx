@@ -1,14 +1,20 @@
-function AccordionItem({ title, body, isOpen, setIsOpen }) {
+function AccordionItem({ index, title, description, curOpen, onOpen }) {
+  const isOpen = index === curOpen;
+
+  function handleToggle() {
+    onOpen(isOpen ? null : index);
+  }
+
   return (
     <div className="border border-black">
       <div
         className="flex cursor-pointer justify-between bg-slate-200 p-2 font-bold"
-        onClick={() => setIsOpen((isOpen) => !isOpen)}
+        onClick={() => handleToggle()}
       >
         <span>{title}</span>
-        <span>🔽</span>
+        <span>{isOpen ? "-" : "+"}</span>
       </div>
-      {isOpen && <div className="p-5">{body}</div>}
+      {isOpen && <div className="p-5">{description}</div>}
     </div>
   );
 }
