@@ -6,6 +6,7 @@ function Search() {
   const [searchResults, setSearchResults] = useState([]);
   const [isResultVisible, setIsResultVisible] = useState(false);
   const [cache, setCache] = useState({});
+  const [selectedValue, setSelectedValue] = useState("");
 
   async function fetchData() {
     if (cache[searchText]) {
@@ -36,20 +37,38 @@ function Search() {
     return () => clearTimeout(id);
   }, [searchText]);
 
+  function selectSuggestion(e) {
+    if (e.target.tagName === "LI") {
+      const suggestion = e.target.getAttribute("data-suggestion");
+      setSearchText(suggestion);
+      setSelectedValue(suggestion);
+      setSearchResults([]);
+      setIsResultVisible(false);
+    }
+  }
+
   return (
-    <div className="m-10">
+    <div className="flex h-screen flex-col items-center justify-center">
       <input
         type="text"
-        className="w-96 rounded-lg border border-black p-2 shadow-lg"
+        className="h-8 w-96 rounded-full border border-black p-6 shadow-lg"
+        placeholder="Search Google or type a URL"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         onFocus={() => setIsResultVisible(true)}
-        onBlur={() => setIsResultVisible(false)}
+        //onBlur={() => setIsResultVisible(false)}
       />
       {searchResults.length > 1 && isResultVisible && (
-        <ul className="w-96 rounded-lg border border-black p-2 shadow-lg">
+        <ul
+          className="w-96 rounded-lg border border-black p-2 shadow-lg"
+          onClick={selectSuggestion}
+        >
           {searchResults.map((r) => (
-            <li className="cursor-pointer hover:bg-gray-200" key={r}>
+            <li
+              className="cursor-pointer hover:bg-gray-200"
+              key={r}
+              data-suggestion={r}
+            >
               {r}
             </li>
           ))}
