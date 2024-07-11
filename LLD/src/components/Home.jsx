@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import MemeCard from "./MemeCard";
 
-function Body() {
+function Home() {
   const [memes, setMemes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,7 +34,7 @@ function Body() {
 
   const handleScroll = () => {
     //scrollY - how much I have scrolled
-    // innerHeight - heigh of the window(visible setion)
+    // innerHeight - height of the window(visible setion)
     // document.body.scrollHeight - total height of the web page
     if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
       fetchMemes();
@@ -52,4 +52,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default Home;

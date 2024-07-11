@@ -6,9 +6,9 @@ function AccordionItem({ index, title, description, curOpen, onOpen }) {
   }
 
   return (
-    <div className="border border-black">
+    <div className="border-gray m-2 rounded-lg border">
       <div
-        className="flex cursor-pointer justify-between bg-slate-200 p-2 font-bold"
+        className="flex cursor-pointer justify-between bg-slate-200 p-6 font-bold"
         onClick={() => handleToggle()}
       >
         <span>{title}</span>
