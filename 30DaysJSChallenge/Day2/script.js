@@ -66,33 +66,18 @@ hasDriverLicense(15);
 
 // Task 9
 
-function hasDriverLicense(age) {
-  if (age >= 18) {
-    console.log("You are eligible for driving lisense");
-  } else if (age <= 17) {
-    console.log("You have to wait till you get 18 years old");
-  }
-}
-
-hasDriverLicense(20);
-hasDriverLicense(15);
+console.log(10 >= 10);
+console.log(12 <= 15);
 
 // Task 10
 
-function compare(a, b) {
-  if (a == b) {
-    console.log("Both numbers are same");
-  } else if (a === b) {
-    console.log("Both numbers and their dataTypes are also same");
-  }
-}
-
-compare(5, 5);
-compare(2, "2");
+console.log(5 == 5); // true
+console.log(5 === "5"); // false
 
 // Logical Operators
 
 // Task 11
+
 function logicalAND(a, b) {
   console.log(a > 0 && b > 0);
 }
