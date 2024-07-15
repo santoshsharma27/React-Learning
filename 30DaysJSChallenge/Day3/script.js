@@ -105,5 +105,22 @@ function isEvenOdd(num) {
   return num % 2 === 0 ? "Even Number" : "Odd Number";
 }
 
-// console.log(isEvenOdd(10));
-// console.log(isEvenOdd(13));
+console.log(isEvenOdd(10));
+console.log(isEvenOdd(13));
+
+// Task 7
+
+function leapYear(year) {
+  if (year % 400 === 0) {
+    console.log("Leap Year");
+  } else if (year % 4 === 0) {
+    console.log("Leap Year");
+  } else if (year % 4 === 0) {
+    console.log("Not a Leap Year");
+  } else {
+    console.log("Not a Leap Year");
+  }
+}
+
+leapYear(2024);
+leapYear(2025);
