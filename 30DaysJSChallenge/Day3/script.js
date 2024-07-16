@@ -115,7 +115,7 @@ function leapYear(year) {
     console.log("Leap Year");
   } else if (year % 4 === 0) {
     console.log("Leap Year");
-  } else if (year % 4 === 0) {
+  } else if (year % 100 === 0) {
     console.log("Not a Leap Year");
   } else {
     console.log("Not a Leap Year");

@@ -7,7 +7,7 @@ function ProductCard({
   discountPercentage,
 }) {
   return (
-    <div className="border-gray m-2 w-[300px] rounded-lg border p-4 text-center">
+    <div className="border-gray m-2 w-[300px] cursor-pointer rounded-lg border p-4 text-center">
       <img className="h-48 w-60 object-fill" alt={title} src={thumbnail} />
       <h2 className="w-60 p-2 text-xl font-bold">
         {id} - {title}
