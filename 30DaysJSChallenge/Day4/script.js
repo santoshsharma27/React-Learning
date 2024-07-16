@@ -26,6 +26,7 @@ console.log(sum);
 
 // Task 4
 
+// print numbers from 10 to 1
 let j = 10;
 while (j >= 1) {
   console.log(j);
@@ -34,11 +35,12 @@ while (j >= 1) {
 
 // Task 5
 
-let y = 1;
+// prints number from 1 to 5
+let score = 1;
 do {
   console.log(y);
-  y++;
-} while (y <= 5);
+  score++;
+} while (score <= 5);
 
 // Task 6
 
