@@ -1,8 +1,6 @@
-function AccordionItem({ index, title, description, curOpen, onOpen }) {
-  const isOpen = index === curOpen;
-
+function AccordionItem({ title, description, isOpen, setIsOpen }) {
   function handleToggle() {
-    onOpen(isOpen ? null : index);
+    setIsOpen(isOpen != isOpen);
   }
 
   return (

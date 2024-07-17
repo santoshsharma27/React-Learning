@@ -23,18 +23,19 @@ const data = [
 ];
 
 function Accordion() {
-  const [curOpen, setCurOpen] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <div className="m-auto w-[50%] pt-5">
-      {data.map((item, i) => (
+      {data.map((item, index) => (
         <AccordionItem
           key={data.id}
           title={item.title}
           description={item.description}
-          curOpen={curOpen}
-          onOpen={setCurOpen}
-          index={i}
+          isOpen={index === openIndex ? true : false}
+          setIsOpen={() => {
+            index === openIndex ? setOpenIndex(null) : setOpenIndex(index);
+          }}
         />
       ))}
     </div>
