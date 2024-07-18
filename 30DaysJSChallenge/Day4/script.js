@@ -38,7 +38,7 @@ while (j >= 1) {
 // prints number from 1 to 5
 let score = 1;
 do {
-  console.log(y);
+  console.log(score);
   score++;
 } while (score <= 5);
 
@@ -76,3 +76,32 @@ for (let i = 1; i <= 10; i++) {
   if (i === 7) break;
   console.log(i);
 }
+
+console.log("===================");
+
+async function async1() {
+  console.log(1);
+  await async2();
+  console.log(2);
+}
+
+async function async2() {
+  console.log(3);
+}
+
+console.log(4);
+
+setTimeout(() => {
+  console.log(5);
+}, 0);
+
+async1();
+
+new Promise((resolve, reject) => {
+  console.log(6);
+  resolve();
+}).then(() => console.log(7));
+
+console.log(8);
+
+// 4 1 3 6 8 2 7 5

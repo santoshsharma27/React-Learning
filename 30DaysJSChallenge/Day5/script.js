@@ -97,3 +97,26 @@ const initialValue = 5;
 const finalResult = applyFunctions(addTwo, multiplyByTwo, initialValue);
 
 console.log(finalResult);
+
+//////////////////////////////
+
+console.log(1);
+
+setTimeout(() => console.log(2), 0);
+
+setTimeout(() => console.log(3), 100);
+
+new Promise((resolve, reject) => {
+  console.log(5);
+  resolve(5);
+  console.log(6);
+  reject(7);
+})
+  .then((value) => console.log(value))
+  .then((value) => console.log(value))
+  .then((value) => console.log(value))
+  .catch((e) => console.log(e))
+  .catch((e) => console.log(e))
+  .finally(() => console.log(8));
+
+console.log(9);
