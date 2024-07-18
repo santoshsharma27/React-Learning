@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
-
-const images = [
-  "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-  "https://piktochart.com/wp-content/uploads/2023/04/large-29.jpg",
-  "https://i.pinimg.com/originals/2b/66/01/2b66016d5a1e2d230ecce59f8e673382.png",
-  "https://i.pinimg.com/736x/5f/09/47/5f0947219a7f446e804e7e0055089fad.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoKMpEfmuwzKmwyl4reX0NW7-Ixgn1DCz6IvxSYpq_CQ&s",
-];
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { images } from "../../constant";
 
 function ImageSlider() {
   const [active, setActive] = useState(0);
@@ -14,10 +8,10 @@ function ImageSlider() {
   useEffect(() => {
     const id = setInterval(() => {
       loadNextImage();
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(id);
-  });
+  }, [active]);
 
   function loadPrevImage() {
     setActive((active) => (active - 1 < 0 ? images.length - 1 : active - 1));
@@ -28,19 +22,25 @@ function ImageSlider() {
   }
 
   return (
-    <div className="m-2 flex items-center justify-center p-2">
-      <img
+    <div className="m-2 flex items-center justify-center gap-6">
+      <HiChevronLeft
+        className="h-10 w-10 cursor-pointer"
         onClick={loadPrevImage}
-        className="h-20 w-20 cursor-pointer"
-        alt="left arrow"
-        src="https://cdn0.iconfinder.com/data/icons/glyphpack/26/nav-arrow-left-512.png"
       />
-      <img className="w-[800px]" src={images[active]} alt="wallpaper" />
-      <img
+      {images.map((image, i) => (
+        <img
+          className={
+            "h-[500px] w-[800px] object-contain pt-5 " +
+            (active === i ? "block" : "hidden")
+          }
+          src={image}
+          alt="wallpaper"
+          key={i}
+        />
+      ))}
+      <HiChevronRight
+        className="h-10 w-10 cursor-pointer"
         onClick={loadNextImage}
-        className="h-20 w-20 cursor-pointer"
-        alt="right arrow"
-        src="https://cdn-icons-png.flaticon.com/512/32/32213.png"
       />
     </div>
   );
