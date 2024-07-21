@@ -3,7 +3,7 @@
 // Task 1: Use template literals to create a string that includes variables for  a person's name and age, and log the string to the console.
 
 function person(name, age) {
-  return `person name is ${name} and age is ${age} years old`;
+  return `My name is ${name} and I am ${age} years old`;
 }
 
 console.log(person("Santosh", 29));
@@ -40,7 +40,7 @@ console.log(newArray);
 
 // Task 6: Use the rest operator in a function to accept an arbitrary number of arguments, sum them, and return the result.
 
-function sum(...num) {
+function addition(...num) {
   let sum = 0;
   for (const value of num) {
     sum += value;
@@ -48,7 +48,7 @@ function sum(...num) {
   return sum;
 }
 
-console.log(sum(...num));
+console.log(addition(...num));
 
 // Task 7: Write a function that takes parameters and returns their product, with the second parameter having a default value of 1. log the result of calling this function with and without the second parameter.
 
