@@ -39,8 +39,10 @@ ulList.lastChild.remove();
 // Task 7
 
 const img = document.querySelector("img");
+console.log(img.getAttribute("src"));
 img.src =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFNALqKuPwqmXAdr7HE76yed4-5yytyQtmhQ&s";
+console.log(img.getAttribute("src"));
 
 // Task 8
 div.classList.add("fullName");
