@@ -35,6 +35,14 @@ function Pagination() {
     fetchProducts();
   }, [currentPage]);
 
+  function prevButtonClickHandler() {
+    setCurrentPage((prevPage) => prevPage - 1);
+  }
+
+  function nextButtonClickHandler() {
+    setCurrentPage((prevPage) => prevPage + 1);
+  }
+
   return (
     <div className="pt-5">
       {isLoading && <Shimmer />}
@@ -45,8 +53,13 @@ function Pagination() {
       </div>
 
       <div className="cursor-pointer p-10 text-center">
+        {currentPage > 0 && (
+          <button className="p-4 text-xl" onClick={prevButtonClickHandler}>
+            {"<"}
+          </button>
+        )}
         {[...Array(totalPages).keys()].map((number) => (
-          <a
+          <span
             className={
               "p-4 text-xl" + (number === currentPage && "font-bold underline")
             }
@@ -56,8 +69,13 @@ function Pagination() {
             }}
           >
             {number + 1}
-          </a>
+          </span>
         ))}
+        {currentPage < totalPages - 1 && (
+          <button className="p-4 text-xl" onClick={nextButtonClickHandler}>
+            {">"}
+          </button>
+        )}
       </div>
     </div>
   );
