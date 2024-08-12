@@ -1,14 +1,19 @@
+// Iterative
 function fibonacci(num) {
-  const fib = [0, 1];
+  let n0 = 0;
+  let n1 = 1;
+  let temp;
 
-  for (let i = 2; i < num; i++) {
-    fib[i] = fib[i - 1] + fib[i - 2];
+  for (let i = 0; i < num; i++) {
+    temp = n0 + n1;
+    n0 = n1;
+    n1 = temp;
   }
 
-  return fib;
+  return n0;
 }
 
-console.log(fibonacci(5));
+console.log(fibonacci(6));
 
 // Recursive
 
