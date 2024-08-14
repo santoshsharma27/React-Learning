@@ -1,11 +1,13 @@
 function factorial(num) {
-  let factorial = 1;
+  if (num === 0) return 1;
+
+  let fact = 1;
 
   for (let i = 2; i <= num; i++) {
-    factorial *= i;
+    fact *= i;
   }
 
-  return factorial;
+  return fact;
 }
 
 console.log(factorial(5));
