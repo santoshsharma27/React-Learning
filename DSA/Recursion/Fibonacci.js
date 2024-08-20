@@ -4,13 +4,13 @@ function fibonacci(num) {
   let n1 = 1;
   let temp;
 
-  for (let i = 0; i < num; i++) {
+  for (let i = 2; i <= num; i++) {
     temp = n0 + n1;
     n0 = n1;
     n1 = temp;
   }
 
-  return n0;
+  return temp;
 }
 
 console.log(fibonacci(6));
