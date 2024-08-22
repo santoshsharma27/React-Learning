@@ -18,7 +18,7 @@ class Queue {
     return this.items.length === 0;
   }
 
-  peek() {
+  front() {
     if (this.isEmpty()) {
       return "Queue is empty";
     }
@@ -30,7 +30,7 @@ class Queue {
   }
 
   clear() {
-    this.items = [];
+    return this.items.length === 0;
   }
 
   display() {

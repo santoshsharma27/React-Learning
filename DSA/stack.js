@@ -8,10 +8,16 @@ class Stack {
   }
 
   pop() {
+    if (this.isEmpty()) {
+      return "Stack is Empty";
+    }
     return this.items.pop();
   }
 
   peek() {
+    if (this.isEmpty()) {
+      return "Stack is Empty";
+    }
     return this.items[this.items.length - 1];
   }
 
@@ -24,7 +30,8 @@ class Stack {
   }
 
   clear() {
-    this.items = [];
+    // return this.items = [];
+    return this.items.length === 0; // more optimized
   }
 
   contains(element) {
