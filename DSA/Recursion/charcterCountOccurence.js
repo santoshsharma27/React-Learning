@@ -21,3 +21,18 @@ function recurCountKey(array, key, index = 0) {
 
   return (array[index] === key ? 1 : 0) + recurCountKey(array, key, index + 1);
 }
+
+function countCharacterOccurrences(str) {
+  let charCount = {};
+
+  for (let char of str) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  return charCount;
+}
+
+// Example usage:
+let text = "hello world";
+let characterCounts = countCharacterOccurrences(text);
+console.log("Character counts:", characterCounts);
