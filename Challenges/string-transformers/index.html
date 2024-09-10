@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container">
+      <input
+        type="text"
+        id="userInput"
+        autocomplete="off"
+        placeholder="enter the sentence with spaces (alphanumeric)"
+      />
+
+      <div class="transformers">
+        <div><label>Lower Case</label><span id="lowercase"></span></div>
+        <div><label>Upper Case</label><span id="uppercase"></span></div>
+        <div><label>Camel Case</label><span id="camelcase"></span></div>
+        <div><label>Pascal Case</label><span id="pascalcase"></span></div>
+        <div><label>Snake Case</label><span id="snakecase"></span></div>
+        <div><label>Kebab Case</label><span id="kebabcase"></span></div>
+        <div><label>Trim</label><span id="trim"></span></div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>

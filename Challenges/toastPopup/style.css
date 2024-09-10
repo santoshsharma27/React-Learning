@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 16px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+}
+
+select,
+input[type="text"],
+button {
+  font: inherit;
+  padding: 8px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.duration-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#duration {
+  flex-grow: 1;
+}
+
+.show-toast {
+  cursor: pointer;
+}
+
+.toasts-container {
+  position: absolute;
+  top: 1rem;
+  left: 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.toasts-container.right {
+  left: auto;
+  right: 0rem;
+}
+
+.toasts-container.bottom {
+  top: auto;
+  bottom: 1rem;
+}
+
+.toast {
+  padding: 0.5em;
+  color: white;
+  border-radius: 0.25rem;
+}
+
+.toast.success {
+  background-color: #009600;
+}
+
+.toast.error {
+  background-color: #ff0000;
+}
+
+.toast.warning {
+  background-color: #ec6b03;
+}
+
+.toast.info {
+  background-color: #4e4e4e;
+}
+
+.toast.success::before {
+  content: "✓";
+}
+
+.toast.error::before {
+  content: "✗";
+}
+
+.toast.warning::before {
+  content: "⚠";
+}
+
+.toast.info::before {
+  content: "ⓘ";
+}
+
+.toast span {
+  cursor: pointer;
+}

@@ -10,7 +10,7 @@ function outer() {
   inner();
 }
 
-outer();
+outer(); // 10
 
 // Task 2
 
@@ -48,9 +48,9 @@ function createCounter() {
 
 const myCounter = createCounter();
 
-// console.log(myCounter.increment());
-// console.log(myCounter.increment());
-// console.log(myCounter.decrement());
+// console.log(myCounter.increment()); // 1
+// console.log(myCounter.increment()); // 2
+// console.log(myCounter.decrement()); // 1
 
 // Task 3 : Write a function that generates unique IDs . Use a closure to keep track of the last generated ID and increment it with each call.
 
