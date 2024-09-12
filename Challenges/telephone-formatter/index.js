@@ -1,7 +1,8 @@
 const input = document.querySelector("input");
 
 input.addEventListener("input", () => {
-  if (input.value.length === 4) {
-    input.value = `+(${input.value.slice(0, 3)}) - ${input.value.slice(3)}`;
+  let value = input.value.replace(/\D/g, "");
+  if (value.length === 4) {
+    input.value = `+(${value.slice(0, 3)}) - ${value.slice(3)}`;
   }
 });
