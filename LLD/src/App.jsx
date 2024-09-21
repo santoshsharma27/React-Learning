@@ -10,6 +10,7 @@ import Order from "./components/Order";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
+import Traffic from "./components/Traffic";
 
 // Lazy Loading
 const Pagination = lazy(() => import("./components/pagination/Pagination"));
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <Route path="search" element={<Search />} />
+        <Route path="traffic" element={<Traffic />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
