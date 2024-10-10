@@ -11,15 +11,11 @@ function palindrome(str) {
     res += str[i];
   }
 
-  if (res === str) {
-    return true;
-  } else {
-    return false;
-  }
+  return res === str ? true : false;
 }
 
-console.log(palindrome("madam"));
-console.log(palindrome("santosh"));
+console.log(palindrome("madam")); // true
+console.log(palindrome("santosh")); // false
 
 // Using string methods
 
@@ -29,12 +25,8 @@ function palindrome2(str) {
   }
 
   const rev = str.split("").reverse().join("");
-  if (rev === str) {
-    return true;
-  } else {
-    return false;
-  }
+  return str === rev ? true : false;
 }
 
-console.log(palindrome2("madam"));
-console.log(palindrome2("santosh"));
+console.log(palindrome2("madam")); // true
+console.log(palindrome2("santosh")); // false

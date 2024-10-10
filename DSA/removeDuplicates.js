@@ -6,7 +6,7 @@ console.log(result);
 
 // Using filter
 
-const newArray = arr.filter((a, index, arr) => index === arr.indexOf(a));
+const newArray = arr.filter((a, index, arr) => arr.indexOf(a) === index);
 console.log(newArray);
 
 // 3rd way
