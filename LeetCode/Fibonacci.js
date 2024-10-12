@@ -1,5 +1,9 @@
 // Iterative
 function fibonacci(num) {
+  if (num < 2) {
+    return num;
+  }
+
   let n0 = 0;
   let n1 = 1;
   let temp;
@@ -26,3 +30,5 @@ function recursiveFibonacci(num) {
 }
 
 console.log(recursiveFibonacci(6));
+
+// Fibonacci numbers with a time complexity of O(n)

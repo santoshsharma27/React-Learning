@@ -9,7 +9,7 @@ console.log(result);
 const newArray = arr.filter((a, index, arr) => arr.indexOf(a) === index);
 console.log(newArray);
 
-// 3rd way
+// Using for loop
 
 const arr1 = [2, 6, 4, 9, 3, 2, 7, 3, 6];
 let output = [];

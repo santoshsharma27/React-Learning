@@ -1,17 +1,3 @@
-// Reverse a String
-
-// iterative
-
-// function reverseString(string) {
-//   let reverse = "";
-//   let length = string.length - 1;
-//   while (length >= 0) {
-//     reverse += string[length];
-//     length--;
-//   }
-//   return reverse;
-// }
-
 function reverseString(string) {
   let reverse = "";
   let length = string.length - 1;
@@ -21,7 +7,7 @@ function reverseString(string) {
   return reverse;
 }
 
-// console.log(reverseString("hello"));
+console.log(reverseString("hello"));
 
 function recursiveReverseString(str) {
   // base case
