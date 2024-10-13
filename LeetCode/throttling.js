@@ -8,19 +8,28 @@ Throttling is great for limiting the execution rate of time-sensitive operations
  */
 
 function throttle(func, limit) {
-  let inThrottle;
+  let flag = true;
   return function (...args) {
-    if (!inThrottle) {
+    if (flag) {
       func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
+      flag = false;
+      setTimeout(() => {
+        flag = true;
+      }, limit);
     }
   };
 }
 
-window.addEventListener(
-  "scroll",
-  throttle(() => {
-    console.log("Scrolling...");
-  }, 1000)
-);
+// Define your handler
+const handleScroll = () => {
+  console.log("Scroll event fired!");
+};
+
+// Create a throttled version of the handler
+const throttledScroll = throttle(handleScroll, 1000);
+
+// Add event listener
+window.addEventListener("scroll", throttledScroll);
+
+// Remove event listener
+window.removeEventListener("scroll", throttledScroll);

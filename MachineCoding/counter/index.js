@@ -19,7 +19,7 @@ reset.addEventListener("click", () => {
 changeBy.addEventListener("change", () => {
   const changeByValue = parseInt(changeBy.value);
 
-  if (Number.isNaN(changeByValue) || changeByValue < 0) {
+  if (isNaN(changeByValue) || changeByValue < 0) {
     changeBy.value = 1; // Reset to 1 if invalid or negative
   }
 });

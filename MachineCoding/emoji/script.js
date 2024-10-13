@@ -37,5 +37,7 @@ const emojis = [
 ];
 
 btn.addEventListener("mouseover", () => {
-  btn.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  const randomIndex = Math.floor(Math.random() * emojis.length);
+  console.log(randomIndex);
+  btn.textContent = emojis[randomIndex];
 });

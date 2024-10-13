@@ -1,1 +1,0 @@
-function reverseVowels(s) {}
