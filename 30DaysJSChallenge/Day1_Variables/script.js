@@ -1,22 +1,22 @@
 // Task1 : Declare a variable using var , assign it a number , and log the value to the console
 
-var a = 135;
-console.log(a);
+var age = 29;
+console.log(age);
 
 //  Task2 : Declare a variable using let , assign it a string , and log the value to the console
 
-let b = "santosh";
-console.log(b);
+let name = "santosh";
+console.log(name);
 
 // Task3 : Declare a variable using const , assign it a boolean value , and log the value to the console
 
-const c = true;
-console.log(c);
+const hasJob = true;
+console.log(hasJob);
 
 // Task 4: Create variables of different data types (number,string,boolean,object,array) and log each variable's type using the typeof operator
 
 const rollNum = 10;
-const name = "Sandeep";
+const name2 = "Sandeep";
 const isStudy = true;
 
 const person = {
@@ -41,6 +41,6 @@ console.log(fullName);
 
 // Task6 : Try reassigning a variable declared with const and observe the error
 
-const age = 28;
-age = 30;
-console.log(age); //  TypeError: Assignment to constant variable.
+const age2 = 28;
+age2 = 30;
+console.log(age2); //  TypeError: Assignment to constant variable.

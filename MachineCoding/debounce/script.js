@@ -23,11 +23,9 @@ function displayUser(user) {
 }
 
 function debounce(fn, delay = 3000) {
-  let debounceTimer;
-  return function () {
-    const context = this;
-    const args = arguments;
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => fn.apply(context, args), delay);
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
   };
 }

@@ -16,9 +16,9 @@ function task1(arr, target) {
 
 const arr = [2, 7, 11, 15];
 
-console.log(task1(arr, 9));
-console.log(task1(arr, 13));
-console.log(task1(arr, 50));
+console.log(task1(arr, 9)); // [0,1]
+console.log(task1(arr, 13)); // [0,2]
+console.log(task1(arr, 50)); // null
 
 // Task 2 Reverse Integer
 
@@ -26,15 +26,16 @@ function task2(num) {
   if (num < 0) return null;
   let rev = 0;
   while (num > 0) {
-    rev = rev * 10 + (num % 10);
+    let lastDigit = num % 10;
+    rev = rev * 10 + lastDigit;
     num = parseInt(num / 10);
   }
   return rev;
 }
 
-console.log(task2(12345));
-console.log(task2(-120));
-console.log(task2(4520));
+console.log(task2(12345)); // 54321
+console.log(task2(-120)); // null
+console.log(task2(4520)); // 354
 
 function reverseNumber(num) {
   if (num < 0) return null;
@@ -42,9 +43,9 @@ function reverseNumber(num) {
   return parseInt(result);
 }
 
-console.log(reverseNumber(123));
-console.log(reverseNumber(-123));
-console.log(reverseNumber(130));
+console.log(reverseNumber(123)); // 321
+console.log(reverseNumber(-123)); // null
+console.log(reverseNumber(130)); // 31
 
 // Task 3 Palindrome Number
 
