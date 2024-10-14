@@ -1,3 +1,5 @@
+// FIFO [First In First Out]
+
 class Queue {
   constructor() {
     this.items = [];
