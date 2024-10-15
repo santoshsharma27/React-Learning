@@ -30,7 +30,7 @@ function ImageSlider() {
       {images.map((image, i) => (
         <img
           className={
-            "h-[500px] w-[800px] object-contain pt-5 " +
+            "h-[500px] w-[800px] object-contain pt-5" +
             (active === i ? "block" : "hidden")
           }
           src={image}

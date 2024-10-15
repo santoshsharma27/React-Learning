@@ -3460,7 +3460,7 @@ function maxSumSubArray(arr){
         currMax += arr[j]
         if(currMax > max){ //or max = Math.max(max, currMax)
           max = currMax
-        }
+z        }
     }
   }
   return max
