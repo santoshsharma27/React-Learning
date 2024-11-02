@@ -7,11 +7,11 @@ event happens continuously.
 Throttling is great for limiting the execution rate of time-sensitive operations such as scrolling or resizing events.
  */
 
-function throttle(func, limit) {
+function throttle(fn, limit) {
   let flag = true;
   return function (...args) {
     if (flag) {
-      func.apply(this, args);
+      fn.apply(this, args);
       flag = false;
       setTimeout(() => {
         flag = true;
@@ -26,7 +26,7 @@ const handleScroll = () => {
 };
 
 // Create a throttled version of the handler
-const throttledScroll = throttle(handleScroll, 1000);
+const throttledScroll = throttle(handleScroll, 3000);
 
 // Add event listener
 window.addEventListener("scroll", throttledScroll);

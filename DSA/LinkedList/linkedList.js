@@ -26,7 +26,6 @@ class LinkedList {
 }
 
 // Insert at the beginning
-
 LinkedList.prototype.insertAtBeginning = function (data) {
   const newNode = new Node(data);
   newNode.next = this.head;
@@ -34,7 +33,6 @@ LinkedList.prototype.insertAtBeginning = function (data) {
 };
 
 // Insert at the end
-
 LinkedList.prototype.insertAtEnd = function (data) {
   const newNode = new Node(data);
   if (!this.head) {
@@ -48,8 +46,7 @@ LinkedList.prototype.insertAtEnd = function (data) {
   last.next = newNode;
 };
 
-// Insert at given node
-
+// Insert after a given node
 LinkedList.prototype.insertAfter = function (prevNode, data) {
   if (!prevNode) {
     console.log("The given prev node cannot be null");
@@ -61,7 +58,6 @@ LinkedList.prototype.insertAfter = function (prevNode, data) {
 };
 
 // Delete the first node
-
 LinkedList.prototype.deleteFirstNode = function () {
   if (!this.head) {
     return;
@@ -70,42 +66,38 @@ LinkedList.prototype.deleteFirstNode = function () {
 };
 
 // Delete the last node
-
 LinkedList.prototype.deleteLastNode = function () {
   if (!this.head) {
-    return; // nothing to delete because list is empty
+    return; // Nothing to delete because list is empty
   }
 
   if (!this.head.next) {
-    this.head = null;
-    return; // If there is only one node
+    this.head = null; // If there is only one node
+    return;
   }
 
-  let secondLast = head;
+  let secondLast = this.head;
   while (secondLast.next.next) {
     secondLast = secondLast.next;
   }
 
-  secondLast.next = null;
+  secondLast.next = null; // Remove the last node
 };
 
 // Usage
-
 const list = new LinkedList();
 list.insertAtBeginning(10);
 list.insertAtBeginning(20);
 list.insertAtBeginning(30);
 
-list.print(); // 10 20 30
+list.print(); // Output: 30, 20, 10
 
 console.log("==============");
 
 list.deleteFirstNode();
+list.print(); // Output: 20, 10
 
-list.print(); // 10 20
 console.log("==============");
 
-list.deleteFirstNode();
-
-list.print();
-console.log("==============");
+list.deleteLastNode();
+list.print(); // Output: 20

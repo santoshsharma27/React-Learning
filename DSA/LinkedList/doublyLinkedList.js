@@ -28,37 +28,65 @@ class DoublyLinkedList {
     }
 
     prevNode.next = newNode;
+
+    if (prevNode === this.tail) {
+      this.tail = newNode; // Update tail if inserted after the last node
+    }
   }
 
-  // Delete the first node in the list
+  // Insert at the beginning
+  insertAtBeginning(data) {
+    const newNode = new Node(data);
+
+    if (this.head !== null) {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+    } else {
+      // List is empty, so the new node is also the tail
+      this.tail = newNode;
+    }
+
+    this.head = newNode;
+  }
+
+  // Insert at the end
+  insertAtEnd(data) {
+    const newNode = new Node(data);
+
+    if (this.tail === null) {
+      // List is empty, so the new node is both the head and tail
+      this.head = this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode; // Update the tail pointer
+    }
+  }
+
+  // Delete the first node
   deleteFirstNode() {
     if (this.head === null) {
-      // If List is empty
       console.log("The list is empty. Nothing to delete.");
       return;
     }
 
     if (this.head === this.tail) {
-      // If there is only one node in the list
-      this.head = null;
-      this.tail = null;
+      this.head = this.tail = null;
     } else {
-      this.head = this.head.next; // Move the head pointer to the next node
+      this.head = this.head.next;
       this.head.prev = null;
     }
   }
 
-  // Delete the last node in the list
+  // Delete the last node
   deleteLastNode() {
     if (this.tail === null) {
-      // If List is empty
       console.log("The list is empty. Nothing to delete.");
       return;
     }
+
     if (this.head === this.tail) {
-      // If there is only one node in the list
-      this.head = null;
-      this.tail = null;
+      this.head = this.tail = null;
     } else {
       this.tail = this.tail.prev;
       this.tail.next = null;
@@ -78,7 +106,7 @@ class DoublyLinkedList {
       current = current.prev;
     }
 
-    // Update the head to point to the last node, which is now the new head
+    // Update the head and tail pointers
     if (temp !== null) {
       this.tail = this.head;
       this.head = temp.prev;
@@ -88,52 +116,14 @@ class DoublyLinkedList {
   // Display the list
   print() {
     let current = this.head;
+    const result = [];
     while (current !== null) {
-      console.log(current.data);
+      result.push(current.data);
       current = current.next;
     }
+    console.log(result.join(" <-> ")); // Use arrows to represent links between nodes
   }
 }
-
-// Method to add a new node at the beginning of the list
-
-DoublyLinkedList.prototype.insertAtBeginning = function (data) {
-  const newNode = new Node(data);
-
-  if (this.head !== null) {
-    // List is not empty
-    newNode.next = this.head; // New node becomes head
-    this.head.prev = newNode; // Attach new node on previous node
-  }
-
-  // If List is empty
-  this.head = newNode;
-
-  if (this.tail === null) {
-    this.tail = newNode;
-  }
-};
-
-// Method to add a new node at the end of the list
-
-DoublyLinkedList.prototype.insertAtEnd = function (data) {
-  const newNode = new Node(data);
-
-  if (this.head === null) {
-    // The list is empty, so the new node becomes the head
-    this.head = newNode;
-  } else {
-    // Traverse to the end of the list
-    let current = this.head;
-    while (current.next !== null) {
-      current = current.next;
-    }
-
-    // Update the last node's next pointer and the new node's prev pointer
-    current.next = newNode;
-    newNode.prev = current;
-  }
-};
 
 // Usage
 
@@ -141,25 +131,26 @@ const list = new DoublyLinkedList();
 list.insertAtBeginning(10);
 list.insertAtBeginning(20);
 list.insertAtBeginning(30);
-list.print();
-console.log("==============");
-list.insertAtEnd(30);
-list.insertAtEnd(40);
-list.insertAtEnd(50);
-list.print();
+list.print(); // Output: 30 <-> 20 <-> 10
 console.log("==============");
 
-const node = list.head.next; // Assume we want to insert after the node with data 10
-list.insertAfterNode(node, 15);
-list.print();
+list.insertAtEnd(40);
+list.insertAtEnd(50);
+list.print(); // Output: 30 <-> 20 <-> 10 <-> 40 <-> 50
+console.log("==============");
+
+const node = list.head.next; // Assume we want to insert after the node with data 20
+list.insertAfterNode(node, 25);
+list.print(); // Output: 30 <-> 20 <-> 25 <-> 10 <-> 40 <-> 50
 console.log("==============");
 
 list.deleteFirstNode();
-list.print();
+list.print(); // Output: 20 <-> 25 <-> 10 <-> 40 <-> 50
 console.log("==============");
+
 list.deleteLastNode();
-list.print();
+list.print(); // Output: 20 <-> 25 <-> 10 <-> 40
 
 list.reverse();
-console.log("==============");
-list.print();
+console.log("Reversed list:");
+list.print(); // Output: 40 <-> 10 <-> 25 <-> 20

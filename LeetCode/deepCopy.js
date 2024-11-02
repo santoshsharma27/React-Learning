@@ -16,6 +16,8 @@ function deepCopy(obj) {
   return copy;
 }
 
+// Usage
+
 const obj = {
   fName: "Santosh",
   lName: "Sharma",

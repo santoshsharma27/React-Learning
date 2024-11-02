@@ -1,3 +1,5 @@
+// prices is any array here
+
 function maxProfit(prices) {
   let minPrice = prices[0]; // Initialize with the first price
   let maxProfit = 0;
@@ -16,5 +18,5 @@ function maxProfit(prices) {
 
 // Example usage:
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5
-console.log(maxProfit([7, 6, 5, 4, 3, 2])); // Output: 0
+console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
+console.log(maxProfit([7, 6, 5, 4, 3, 2])); // Output: 0 (no profit possible)

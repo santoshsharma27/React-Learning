@@ -1,5 +1,3 @@
-// import { useState } from "react";
-// import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 function Github() {
@@ -17,8 +15,14 @@ function Github() {
 
   return (
     <div className="m-4 bg-gray-600 p-4 text-center text-3xl text-white">
-      Github followers: {data.followers}
-      <img src={data.avatar_url} alt="Git picture" width={300} />
+      {data ? (
+        <>
+          <p>GitHub Followers: {data.followers}</p>
+          <img src={data.avatar_url} alt="GitHub avatar" width={300} />
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
@@ -26,6 +30,18 @@ function Github() {
 export default Github;
 
 export const githubInfoLoader = async () => {
-  const response = await fetch("https://api.github.com/users/santoshsharma27");
-  return response.json();
+  try {
+    const response = await fetch(
+      "https://api.github.com/users/santoshsharma27",
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch GitHub data.");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return { followers: "Data unavailable", avatar_url: "" };
+  }
 };

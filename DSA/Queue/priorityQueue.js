@@ -23,7 +23,7 @@ class PriorityQueue {
     if (this.isEmpty()) {
       return "Priority Queue is empty";
     }
-    return this.items.shift().element; // first item is object
+    return this.items.shift().element;
   }
 
   front() {
@@ -42,7 +42,7 @@ class PriorityQueue {
   }
 
   clear() {
-    return this.items.length === 0;
+    this.items = [];
   }
 
   display() {
@@ -57,10 +57,14 @@ priorityQueue.enqueue("Task A", 2);
 priorityQueue.enqueue("Task B", 1);
 priorityQueue.enqueue("Task C", 3);
 
-console.log(priorityQueue.display());
+console.log(priorityQueue.display()); // [{element: "Task B", priority: 1}, {element: "Task A", priority: 2}, {element: "Task C", priority: 3}]
 
 console.log(priorityQueue.front()); // Task B
 
 priorityQueue.dequeue();
 console.log(priorityQueue.front()); // Task A
-console.log("Size", priorityQueue.size()); //2
+console.log("Size", priorityQueue.size()); // 2
+
+priorityQueue.clear();
+console.log(priorityQueue.display()); // []
+console.log("Size after clearing", priorityQueue.size()); // 0

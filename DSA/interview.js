@@ -10,11 +10,9 @@ const excludes = [
 ];
 
 function excludeItems(items, excludes) {
-  excludes.forEach((pair) => {
-    items = items.filter((item) => item[pair.k] !== pair.v);
-  });
-
-  return items;
+  return items.filter(
+    (item) => !excludes.some((pair) => item[pair.k] === pair.v)
+  );
 }
 
 console.log(excludeItems(items, excludes));

@@ -71,11 +71,11 @@ Function.prototype.myCall = function (context, ...args) {
 // Example usage
 
 const person = {
-  name: "Santosh",
+  firstName: "Santosh",
 };
 
 function greet(greeting, lastName) {
-  return `${greeting}, ${this.name} ${this.lastName}`;
+  return `${greeting}, ${this.firstName} ${this.lastName}`;
 }
 
 // Using our custom myCall method

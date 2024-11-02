@@ -2,8 +2,8 @@ function targetSum(arr, target) {
   for (let i = 0; i < arr.length; i++) {
     for (j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === target) {
-        // return [i, j]; // will return index
-        return [arr[i], arr[j]]; // will return number
+        return [i, j]; // will return index
+        // return [arr[i], arr[j]]; // will return number
       }
     }
   }

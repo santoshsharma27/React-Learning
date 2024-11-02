@@ -32,7 +32,7 @@ class Queue {
   }
 
   clear() {
-    return this.items.length === 0;
+    this.items = [];
   }
 
   display() {
@@ -55,8 +55,12 @@ queue.enqueue(10);
 queue.enqueue(20);
 queue.enqueue(30);
 
-console.log(queue.printQueue());
-console.log(queue.display()); // [10,20,30]
+console.log(queue.printQueue()); // Displays 10, 20, 30 each on a new line
+console.log(queue.display()); // [10, 20, 30]
 
 queue.dequeue();
-console.log(queue.printQueue());
+console.log(queue.printQueue()); // Displays 20, 30 each on a new line
+
+queue.clear();
+console.log(queue.display()); // []
+console.log(queue.isEmpty()); // true
