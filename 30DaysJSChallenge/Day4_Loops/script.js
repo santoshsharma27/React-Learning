@@ -22,7 +22,7 @@ while (num <= 10) {
   num++;
 }
 
-console.log(sum);
+console.log(sum); // 55
 
 // Task 4
 

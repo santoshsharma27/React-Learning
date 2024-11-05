@@ -3,17 +3,17 @@
 // Task 1: Create an object representing a book with properties like, title, author and year and log the object to the console.
 
 const book = {
-  title: "My book",
-  author: "Santosh",
-  year: 2024,
+  title: "Atomic Habits",
+  author: "James Clear",
+  year: 2018,
 };
 
 console.log(book);
 
 // Task 2: Access and log the title and author properties of the book object.
 
-console.log(book.title);
-console.log(book["author"]);
+console.log(book.title); // Atomic Habits
+console.log(book["author"]); // James Clear
 
 // Task 3: Add a method to the book object that return a string with the book's title and author, and log the result of calling this method.
 

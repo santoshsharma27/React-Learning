@@ -64,6 +64,7 @@ switch (day) {
     break;
   case 6:
     console.log("Its a Saturday");
+    break;
   case 7:
     console.log("Its Sunday");
     break;
@@ -81,13 +82,13 @@ function grade(marks) {
     case marks >= 80 && marks < 90:
       console.log("You got B grade");
       break;
-    case marks >= 70 && marks < 79:
+    case marks >= 70 && marks <= 79:
       console.log("You got C grade");
       break;
-    case marks >= 60 && marks < 69:
+    case marks >= 60 && marks <= 69:
       console.log("You got D grade");
       break;
-    case marks >= 50 && marks < 59:
+    case marks >= 50 && marks <= 59:
       console.log("You got E grade");
       break;
     default:
@@ -95,9 +96,9 @@ function grade(marks) {
   }
 }
 
-grade(95);
-grade(89);
-grade(49);
+grade(95); // Output: You got A grade
+grade(89); // Output: You got B grade
+grade(49); // Output: You got F grade
 
 // Task 6
 
@@ -105,22 +106,33 @@ function isEvenOdd(num) {
   return num % 2 === 0 ? "Even Number" : "Odd Number";
 }
 
-console.log(isEvenOdd(10));
-console.log(isEvenOdd(13));
+console.log(isEvenOdd(10)); // Output: "Even Number"
+console.log(isEvenOdd(13)); // Output: "Odd Number"
 
 // Task 7
 
 function leapYear(year) {
   if (year % 400 === 0) {
     console.log("Leap Year");
-  } else if (year % 4 === 0) {
-    console.log("Leap Year");
   } else if (year % 100 === 0) {
     console.log("Not a Leap Year");
+  } else if (year % 4 === 0) {
+    console.log("Leap Year");
   } else {
     console.log("Not a Leap Year");
   }
 }
 
-leapYear(2024);
-leapYear(2025);
+leapYear(2024); // Output: "Leap Year"
+leapYear(2025); // Output: "Not a Leap Year"
+leapYear(1900); // Output: "Not a Leap Year"
+leapYear(2000); // Output: "Leap Year"
+
+/*
+According to the rules for determining a leap year:
+
+A year is a leap year if it is divisible by 400.
+If it’s not divisible by 400, but it is divisible by 4 and not by 100, then it’s a leap year.
+If it is divisible by 100 but not by 400, it’s not a leap year.
+
+*/

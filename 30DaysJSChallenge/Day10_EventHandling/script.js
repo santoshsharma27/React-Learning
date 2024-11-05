@@ -36,12 +36,15 @@ para.addEventListener("mouseout", () => {
 const input = document.querySelector("input");
 input.addEventListener("keydown", (e) => {
   console.log(e.key);
+  console.log(e.target);
 });
 
 // Task 6
 
 const inputValue = document.querySelector(".input__Value");
-input.addEventListener("keyup", () => {
+input.addEventListener("keyup", (e) => {
+  console.log("Key up:", e.key);
+
   const value = input.value;
   inputValue.textContent = value;
 });
@@ -80,7 +83,8 @@ listItem.forEach((li) =>
 
 function addChild() {
   const newChild = document.createElement("div");
-  newChild.className = "child";
+  // newChild.className = "child";
+  newChild.classList.add("child");
   newChild.textContent = "I am a dynamically added child";
   document.getElementById("parent").appendChild(newChild);
 }

@@ -14,7 +14,7 @@ function substract(a, b) {
 
 substract(5, 3); // 2
 
-// Task 3 : Write a program to substract two numbers and log the result to the console
+// Task 3 : Write a program to multiply two numbers and log the result to the console
 function multiply(a, b) {
   console.log(a * b);
 }

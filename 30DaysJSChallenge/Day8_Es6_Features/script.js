@@ -19,13 +19,14 @@ console.log(str);
 const arr = [1, 2, 3, 4, 5];
 
 const [first, second] = arr;
-console.log(first, second);
+console.log(first, second); // 1 2
 
 // Task 4: Use object destructuring to extract the title and author from a book object and log them to the console.
 
 const book = {
-  title: "Book1",
-  author: "Santosh",
+  title: "Atomic Habits",
+  author: "James Clear",
+  year: 1990,
 };
 
 const { title, author } = book;
@@ -36,7 +37,7 @@ console.log(title, author);
 const num = [2, 4, 6, 8, 10];
 
 const newArray = [...num, 12, 14, 16];
-console.log(newArray);
+console.log(newArray); // [2, 4, 6, 8, 10, 12, 14, 16];
 
 // Task 6: Use the rest operator in a function to accept an arbitrary number of arguments, sum them, and return the result.
 
@@ -81,6 +82,6 @@ const user = {
   [property]: name,
 };
 
-console.log(user);
+console.log(user); // { firstName: 'Santosh' }
 
-console.log(user.firstName);
+console.log(user.firstName); // Santosh
