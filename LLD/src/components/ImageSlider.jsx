@@ -1,49 +1,56 @@
-import { useEffect, useState } from "react";
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { useState, useEffect } from "react";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { images } from "../../constant";
 
-function ImageSlider() {
+const ImageSlider = () => {
   const [active, setActive] = useState(0);
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      loadNextImage();
-    }, 2000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     loadNextImage();
+  //   }, 2000);
 
-    return () => clearInterval(id);
-  }, [active]);
+  //   return () => clearInterval(interval);
+  // }, [active]);
 
-  function loadPrevImage() {
-    setActive((active) => (active - 1 < 0 ? images.length - 1 : active - 1));
-  }
+  const loadNextImage = () => {
+    setActive((prev) => (prev + 1) % images.length);
+  };
 
-  function loadNextImage() {
-    setActive((active) => (active + 1) % images.length);
-  }
+  const loadPrevImage = () => {
+    setActive((prev) => (prev - 1 < 0 ? images.length - 1 : prev - 1));
+  };
 
   return (
-    <div className="m-2 flex items-center justify-center gap-6">
-      <HiChevronLeft
-        className="h-10 w-10 cursor-pointer"
+    <div className="relative m-4 mx-auto w-full max-w-screen-lg">
+      {/* Left Arrow */}
+      <button
         onClick={loadPrevImage}
-      />
-      {images.map((image, i) => (
+        className="absolute left-4 top-1/2 -translate-y-1/2 transform rounded-full bg-black bg-opacity-50 p-2 text-4xl text-white transition-all duration-300 hover:bg-opacity-100"
+        aria-label="Previous Image"
+      >
+        <HiChevronLeft />
+      </button>
+
+      {/* Image */}
+      <div className="overflow-hidden">
         <img
-          className={
-            "h-[500px] w-[800px] object-contain pt-5" +
-            (active === i ? "block" : "hidden")
-          }
-          src={image}
-          alt="wallpaper"
-          key={i}
+          className="h-[500px] w-full object-cover transition-opacity duration-700 ease-in-out sm:h-[400px] md:h-[500px]"
+          src={images[active]}
+          alt={`Slider Image ${active}`}
         />
-      ))}
-      <HiChevronRight
-        className="h-10 w-10 cursor-pointer"
+      </div>
+
+      {/* Right Arrow */}
+      <button
         onClick={loadNextImage}
-      />
+        className="absolute right-4 top-1/2 -translate-y-1/2 transform rounded-full bg-black bg-opacity-50 p-2 text-4xl text-white transition-all duration-300 hover:bg-opacity-100"
+        aria-label="Next Image"
+      >
+        <HiChevronRight />
+      </button>
     </div>
   );
-}
+};
 
 export default ImageSlider;

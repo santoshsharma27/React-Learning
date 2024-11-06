@@ -1,13 +1,13 @@
-function AccordionItem({ title, description, isOpen, setIsOpen }) {
-  function handleToggle() {
-    setIsOpen(isOpen != isOpen);
-  }
-
+function AccordionItem({ title, description, isOpen, toggleIsOpen }) {
   return (
-    <div className="border-gray m-2 rounded-lg border">
+    <div
+      className={`m-2 rounded-lg border ${
+        isOpen ? "border-blue-500" : "border-gray-200"
+      }`}
+    >
       <div
         className="flex cursor-pointer justify-between bg-slate-200 p-6 font-bold"
-        onClick={() => handleToggle()}
+        onClick={toggleIsOpen}
       >
         <span>{title}</span>
         <span>{isOpen ? "-" : "+"}</span>
