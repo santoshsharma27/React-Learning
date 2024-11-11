@@ -43,18 +43,9 @@ console.log(result);
 // Reduce()
 Array.prototype.myReduce = function (cb, initialValue) {
   let acc = initialValue;
-  let startIndex = 0;
-
-  // If initialValue is not provided, set the first element as the initial value and start from index 1
-  if (acc === undefined) {
-    acc = this[0];
-    startIndex = 1;
+  for (let i = 0; i < this.length; i++) {
+    acc = acc ? cb(acc, this[i], i, this) : this[i];
   }
-
-  for (let i = startIndex; i < this.length; i++) {
-    acc = cb(acc, this[i], i, this);
-  }
-
   return acc;
 };
 

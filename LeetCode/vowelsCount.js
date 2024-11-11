@@ -4,14 +4,14 @@ function vowelCount(str) {
   str = str.toLowerCase();
   let count = 0;
 
-  for (let i = 0; i < str.length; i++) {
+  for (let char of str) {
     // Check if the character is a vowel
     if (
-      str[i] === "a" ||
-      str[i] === "e" ||
-      str[i] === "i" ||
-      str[i] === "o" ||
-      str[i] === "u"
+      char === "a" ||
+      char === "e" ||
+      char === "i" ||
+      char === "o" ||
+      char === "u"
     ) {
       count++;
     }

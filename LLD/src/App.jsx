@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import Accordion from "./components//Accordion/Accordion";
+import Accordion from "./components/Accordion/Accordion";
 import ImageSlider from "./components/ImageSlider";
 import Error from "./components/Error";
 // import Pagination from "./components/pagination/Pagination";

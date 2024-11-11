@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circle Intersection Checker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Circle Intersection Checker</h1>
+      <div class="input-group">
+        <h2>Circle 1</h2>
+        <label for="x1">X1:</label>
+        <input type="number" id="x1" placeholder="Center X1" />
+        <label for="y1">Y1:</label>
+        <input type="number" id="y1" placeholder="Center Y1" />
+        <label for="r1">Radius 1:</label>
+        <input type="number" id="r1" placeholder="Radius 1" />
+      </div>
+      <div class="input-group">
+        <h2>Circle 2</h2>
+        <label for="x2">X2:</label>
+        <input type="number" id="x2" placeholder="Center X2" />
+        <label for="y2">Y2:</label>
+        <input type="number" id="y2" placeholder="Center Y2" />
+        <label for="r2">Radius 2:</label>
+        <input type="number" id="r2" placeholder="Radius 2" />
+      </div>
+      <button onclick="checkIntersection()">Check Intersection</button>
+      <p id="result"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

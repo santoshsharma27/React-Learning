@@ -8,9 +8,7 @@ function memoize(fn) {
       return cache[key]; // Return cached result if available
     } else {
       console.log(`Computing result for ${key}`);
-      const result = fn(...args); // Compute result
-      cache[key] = result; // Cache the result
-      return result;
+      cache[key] = fn(...args); // Compute result
     }
   };
 }

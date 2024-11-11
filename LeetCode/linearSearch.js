@@ -10,10 +10,4 @@ function linearSearch(arr, target) {
 // Example usage:
 const arr = [10, 23, 45, 70, 11, 15];
 const target = 45;
-const result = linearSearch(arr, target);
-
-if (result !== -1) {
-  console.log(`Element found at index ${result}`);
-} else {
-  console.log("Element not found");
-}
+console.log(linearSearch(arr, target));

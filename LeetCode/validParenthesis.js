@@ -1,36 +1,30 @@
-function isValid(s) {
-  // Create a stack to keep track of opening brackets
-  let stack = [];
-
-  // Create a obj to match the corresponding closing brackets
-  let matchingBrackets = {
-    ")": "(",
-    "}": "{",
-    "]": "[",
+function isValidParentheses(s) {
+  const stack = [];
+  const map = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
   };
 
-  // Iterate through each character in the string
   for (let char of s) {
-    // If the character is an opening bracket, push it onto the stack
-    if (char === "(" || char === "{" || char === "[") {
-      stack.push(char);
-    }
-    // If the character is a closing bracket
-    else if (char === ")" || char === "}" || char === "]") {
-      // If the stack is empty or the top of the stack doesn't match the closing bracket, return false
-      if (stack.length === 0 || stack.pop() !== matchingBrackets[char]) {
+    if (map[char]) {
+      // If the character is an opening bracket, push its corresponding closing bracket onto the stack
+      stack.push(map[char]);
+    } else {
+      // If the character is a closing bracket, check if it matches the top of the stack
+      if (stack.pop() !== char) {
         return false;
       }
     }
   }
 
-  // If the stack is empty, all brackets were properly matched; otherwise, return false
+  // If the stack is empty, all brackets were properly closed and nested
   return stack.length === 0;
 }
 
-// Example usage
-console.log(isValid("()")); // true
-console.log(isValid("()[]{}")); // true
-console.log(isValid("(]")); // false
-console.log(isValid("([)]")); // false
-console.log(isValid("{[]}")); // true
+// Example usage:
+console.log(isValidParentheses("()")); // Output: true
+console.log(isValidParentheses("()[]{}")); // Output: true
+console.log(isValidParentheses("(]")); // Output: false
+console.log(isValidParentheses("([)]")); // Output: false
+console.log(isValidParentheses("{[]}")); // Output: true

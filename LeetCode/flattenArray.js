@@ -29,11 +29,11 @@ console.log(flattenArray(arr, [])); // Output: [ 1, 2, { name: 'Santosh' }, 12, 
 // Third way
 
 function flatArr(arr, finalArr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === "number") {
-      finalArr.push(arr[i]);
+  for (let a of arr) {
+    if (typeof a === "number") {
+      finalArr.push(a);
     } else {
-      flatArr(arr[i], finalArr); // Recursive call
+      flatArr(a, finalArr); // Recursive call
     }
   }
   return finalArr;
