@@ -11,11 +11,10 @@ console.log(newArray);
 
 // Using for loop
 
-const arr1 = [2, 6, 4, 9, 3, 2, 7, 3, 6];
 let output = [];
-for (let i = 0; i < arr1.length; i++) {
-  if (arr1.indexOf(arr1[i]) === i) {
-    output.push(arr1[i]);
+for (let i = 0; i < arr.length; i++) {
+  if (arr.indexOf(arr[i]) === i) {
+    output.push(arr[i]);
   }
 }
 console.log(output);

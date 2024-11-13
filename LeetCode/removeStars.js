@@ -1,5 +1,5 @@
 /**
- * @param {string} s
+ * @param {string}
  * @return {string}
  */
 var removeStars = function (s) {
@@ -20,4 +20,4 @@ var removeStars = function (s) {
   return stack.join("");
 };
 
-console.log(removeStars("leet**cod*e"));
+console.log(removeStars("leet**cod*e")); // Output: "lecoe"

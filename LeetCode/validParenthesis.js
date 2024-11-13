@@ -1,15 +1,15 @@
 function isValidParentheses(s) {
   const stack = [];
-  const map = {
+  const obj = {
     "(": ")",
     "{": "}",
     "[": "]",
   };
 
   for (let char of s) {
-    if (map[char]) {
+    if (obj[char]) {
       // If the character is an opening bracket, push its corresponding closing bracket onto the stack
-      stack.push(map[char]);
+      stack.push(obj[char]);
     } else {
       // If the character is a closing bracket, check if it matches the top of the stack
       if (stack.pop() !== char) {

@@ -3,12 +3,14 @@ function memoize(fn) {
 
   return function (...args) {
     const key = JSON.stringify(args); // Use arguments as cache key
-    if (cache[key]) {
+    if (cache[key] !== undefined) {
       console.log(`Returning cached result for ${key}`);
       return cache[key]; // Return cached result if available
     } else {
       console.log(`Computing result for ${key}`);
-      cache[key] = fn(...args); // Compute result
+      const result = fn(...args); // Compute result
+      cache[key] = result;
+      return result;
     }
   };
 }

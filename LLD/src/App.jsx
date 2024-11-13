@@ -3,7 +3,6 @@ import Home from "./components/Home";
 import Accordion from "./components/Accordion/Accordion";
 import ImageSlider from "./components/ImageSlider";
 import Error from "./components/Error";
-// import Pagination from "./components/pagination/Pagination";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
 import Order from "./components/Order";
@@ -11,6 +10,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
 import Traffic from "./components/Traffic";
+import Expander from "./components/TextExpander/Expander";
+// import Pagination from "./components/pagination/Pagination";
 
 // Lazy Loading
 const Pagination = lazy(() => import("./components/pagination/Pagination"));
@@ -36,6 +37,7 @@ function App() {
         />
         <Route path="search" element={<Search />} />
         <Route path="traffic" element={<Traffic />} />
+        <Route path="textExpander" element={<Expander />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

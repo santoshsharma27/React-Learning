@@ -14,7 +14,7 @@ Code 1: Remove Duplicate characters from String
 function removeDuplicateCharacters() {
   var string='priya riya supriya'
   let result= string.split('').filter((item, index, arr)=> {
-               return arr.indexOf(item) == index;
+               return arr.indexOf(item) === index;
                }).join('');
   return result;
 }
