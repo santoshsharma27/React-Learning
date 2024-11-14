@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flame Animation</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+      }
+      .container {
+        height: 240px;
+        width: 650px;
+        background-color: black;
+        padding: 10px;
+        padding-bottom: 0;
+        overflow: hidden;
+      }
+
+      .boxes {
+        display: flex;
+      }
+
+      .box {
+        height: 240px;
+        width: 130px;
+        position: relative;
+      }
+
+      #box1 {
+        background-color: blue;
+      }
+      #box2 {
+        background-color: red;
+      }
+      #box3 {
+        background-color: green;
+      }
+      #box4 {
+        background-color: pink;
+      }
+      #box5 {
+        background-color: yellow;
+      }
+
+      .buttons {
+        padding-top: 40px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .button {
+        padding: 10px;
+        color: white;
+        border: none;
+        width: 100px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .startBtn {
+        background-color: green;
+      }
+      .resetBtn {
+        background-color: blue;
+      }
+      .stopBtn {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="boxes">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+        <div class="box" id="box4"></div>
+        <div class="box" id="box5"></div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="button startBtn">Start</button>
+      <button class="button resetBtn">Reset</button>
+      <button class="button stopBtn">Stop</button>
+    </div>
+
+    <script>
+      const boxes = document.querySelectorAll(".box");
+      const startBtn = document.querySelector(".startBtn");
+      const stopBtn = document.querySelector(".stopBtn");
+      const resetBtn = document.querySelector(".resetBtn");
+      let interval;
+      let isAnimating = false;
+
+      // Define unique translate values for each box
+      const translateValues = ["50%", "30%", "40%", "80%", "60%"];
+
+      // Start button: start the flame-like animation
+      startBtn.addEventListener("click", () => {
+        if (!isAnimating) {
+          isAnimating = true;
+          interval = setInterval(() => {
+            boxes.forEach((box, index) => {
+              box.style.transition = "transform 1s ease-in-out";
+              box.style.transform =
+                box.style.transform === `translateY(${translateValues[index]})`
+                  ? "translateY(0)"
+                  : `translateY(${translateValues[index]})`;
+            });
+          }, 1000);
+        }
+      });
+
+      // Stop button: stop the animation in its current position
+      stopBtn.addEventListener("click", () => {
+        if (isAnimating) {
+          clearInterval(interval);
+          isAnimating = false;
+          boxes.forEach((box) => {
+            const computedStyle = window.getComputedStyle(box);
+            const matrix = new WebKitCSSMatrix(computedStyle.transform);
+            box.style.transition = "none";
+            box.style.transform = `translateY(${matrix.m42}px)`;
+          });
+        }
+      });
+
+      // Reset button: reset the boxes to the original position and stop the animation
+      resetBtn.addEventListener("click", () => {
+        clearInterval(interval);
+        isAnimating = false;
+        boxes.forEach((box) => {
+          box.style.transition = "none";
+          box.style.transform = "translateY(0)";
+        });
+      });
+    </script>
+  </body>
+</html>
