@@ -1749,8 +1749,8 @@ A closure is the combination of a function and the lexical environment within wh
 OR
 When inner function can have access to the outer function variables and parameter.
 
-The return statement does not execute the inner function - function is only executed only when followed by ()parathesis, but rather than returns the entire
-body of the function.
+The return statement does not execute the inner function - function is only executed only when followed by ()parathesis, but rather than 
+returns the entire body of the function.
 
 Uses/advantages of closures:
 -event handlers
@@ -1788,6 +1788,7 @@ const outerFunction =(a)=>{
   }
   return innerFunction
 }
+
 outerFunction(5) //output : 
  ()=>{
     let sum = a+b;
@@ -2097,7 +2098,7 @@ console.log(window.a); //10
 console.log(a); //10
 console.log(this.a); //10
 ================================================================================================================================================================================
-Even Propogation an STOP Propogation: Bydefault event capturing happen first and then even bubbling happen.
+Event Propogation an STOP Propogation: Bydefault event capturing happen first and then even bubbling happen.
 
 Event Bubbling:
 1. When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. With bubbling, the event is 
@@ -2245,7 +2246,7 @@ You need to load a polyfill if ES6 is not supported
 ✌🏼One shortcoming of native promises is no direct way to cancel a fetch request. But the new AbortController from js specification allows you to use a signal to abort one or multiple fetch calls. 
 ================================================================================================================================================================================
 👉What are default parameters?
-✌🏼In E5, we need to depend on logical OR operators to handle default values of function parameters. Whereas in ES6, Default function parameters feature allows parameters to be initialized with default values if no value or undefined is passed. Let's compare the behavior with an examples,
+✌🏼In ES5, we need to depend on logical OR operators to handle default values of function parameters. Whereas in ES6, Default function parameters feature allows parameters to be initialized with default values if no value or undefined is passed. Let's compare the behavior with an examples,
 //ES5
 var calculateArea = function(height, width) {
    height =  height || 50;

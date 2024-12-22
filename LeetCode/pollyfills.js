@@ -84,13 +84,12 @@ let printName = function (town, state) {
 };
 
 Function.prototype.mybind = function (...args) {
-  //printName arguments
-  let obj = this; //printName
-  params = args.slice(1);
+  let obj = this; // 'this' refers to printName function
+  let params = args.slice(1); // Parameters passed to mybind excluding the context (name)
   return function (...args2) {
     //printNameFinal arguments
     obj.apply(args[0], [...params, ...args2]);
   };
 };
 let printNameFinal = printName.mybind(person1, "Hajipur");
-printNameFinal("Bihar");
+printNameFinal("Bihar"); // Output: Santosh Sharma Hajipur Bihar
