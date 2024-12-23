@@ -1,17 +1,23 @@
-function findMaxAverage(nums, k) {
-  let sum = 0;
+function maxSubArray(nums) {
+  // Initialize sum and maximum sum
+  let currentSum = 0;
+  let maxSum = nums[0];
 
-  for (let i = 0; i < k; i++) {
-    sum += nums[i];
+  for (let i = 0; i < nums.length; i++) {
+    currentSum += nums[i];
+
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+    }
+
+    if (currentSum < 0) {
+      currentSum = 0;
+    }
   }
 
-  let maxSum = sum;
-
-  for (i = k; i < nums.length; i++) {
-    sum = sum - nums[i - k] + nums[i];
-    maxSum = Math.max(maxSum, sum);
-  }
-  return maxSum / k;
+  return maxSum;
 }
 
-console.log(findMaxAverage([1, 12, -5, -6, 50, 3], 4));
+// Example usage:
+const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+console.log(maxSubArray(nums)); // Output: 6 (subarray: [4, -1, 2, 1])
