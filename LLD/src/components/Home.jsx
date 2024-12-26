@@ -45,7 +45,7 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-center pt-5">
       {memes.map((meme, i) => (
         <MemeCard key={i} meme={meme} />
       ))}

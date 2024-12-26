@@ -26,7 +26,8 @@ function Accordion() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <div className="m-auto w-[50%] pt-16">
+    <div className="m-auto w-[50%]">
+      <h1 className="text-center text-2xl font-extrabold">Accordion</h1>
       {data.map((item, index) => (
         <AccordionItem
           key={item.id}

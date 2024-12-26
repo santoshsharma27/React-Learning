@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import Shimmer from "../Shimmer";
 
-const LIMIT = 12;
+const LIMIT = 10;
 
 function Pagination() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -25,6 +24,7 @@ function Pagination() {
       if (!res.ok)
         throw new Error("Something went wrong with fetching products");
       const data = await res.json();
+
       setProducts(data.products);
       setTotalPages(Math.ceil(data.total / LIMIT));
     } catch (err) {
@@ -43,9 +43,12 @@ function Pagination() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 pt-8">
+    <div className="min-h-screen">
+      <h1 className="text-center text-2xl font-extrabold">Pagination</h1>
       {isLoading ? (
-        <Shimmer />
+        <h2 className="flex h-screen items-center justify-center">
+          Loading...
+        </h2>
       ) : products.length === 0 ? (
         <p className="text-center text-lg font-medium text-gray-700">
           No products available
@@ -58,7 +61,8 @@ function Pagination() {
             ))}
           </div>
 
-          <div className="flex items-center justify-center gap-4 py-4">
+          {/* Pagination Controls */}
+          <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center gap-4 bg-white py-4 shadow-md">
             <button
               className="rounded-md bg-blue-600 px-6 py-2 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={prevButtonClickHandler}
@@ -69,7 +73,7 @@ function Pagination() {
 
             {[...Array(totalPages).keys()].map((number) => (
               <button
-                className={`rounded-md px-4 py-2 text-lg font-semibold text-gray-700 transition duration-300 ${
+                className={`rounded-md px-2 py-2 text-lg font-semibold text-gray-700 transition duration-300 ${
                   number === currentPage
                     ? "bg-blue-600 font-bold text-white"
                     : "hover:bg-blue-200"

@@ -94,13 +94,13 @@ function Search() {
           className="w-96 rounded-lg border border-black p-2 shadow-lg"
           onClick={selectSuggestion}
         >
-          {searchResults.map((r) => (
+          {searchResults.map((result) => (
             <li
               className="cursor-pointer hover:bg-gray-200"
-              key={r}
-              data-suggestion={r}
+              key={result}
+              data-suggestion={result}
             >
-              {r}
+              {result}
             </li>
           ))}
         </ul>

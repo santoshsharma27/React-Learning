@@ -3,6 +3,7 @@ import TextExpander from "./TextExpander";
 function Expander() {
   return (
     <div className="space-y-6 bg-gray-100 p-4">
+      <h1 className="text-center text-2xl font-extrabold">Text Expander</h1>
       <TextExpander>
         Space travel is the ultimate adventure! Imagine soaring past the stars
         and exploring new worlds. It's the stuff of dreams and science fiction,

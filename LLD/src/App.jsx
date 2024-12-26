@@ -11,6 +11,7 @@ import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
 import Traffic from "./components/Traffic";
 import Expander from "./components/TextExpander/Expander";
+import NavBar from "./components/NavBar";
 // import Pagination from "./components/pagination/Pagination";
 
 // Lazy Loading
@@ -19,6 +20,7 @@ const Pagination = lazy(() => import("./components/pagination/Pagination"));
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<ProtectedRoute />}>

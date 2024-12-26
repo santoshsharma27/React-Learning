@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload</title>
+    <link rel="stylesheet" href="./style.css"></link>
+  </head>
+  <body>
+    <div class="upload-container">
+      <div id="dropArea" class="drop-area">
+        <p id="uploadText">
+          Drag & drop files here or <span id="browseLink">browse</span>
+        </p>
+        <input type="file" id="fileInput" hidden />
+      </div>
+      <button id="removeButton" class="hidden">Remove</button>
+      <p id="fileName" class="file-name hidden"></p>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

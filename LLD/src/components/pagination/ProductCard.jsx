@@ -12,7 +12,7 @@ function ProductCard({
   return (
     <div className="m-4 w-[300px] max-w-xs cursor-pointer rounded-lg border border-gray-300 shadow-lg transition-all duration-300 hover:shadow-xl">
       <img
-        className="h-48 w-full rounded-t-lg object-cover"
+        className="h-24 w-full rounded-t-lg object-cover"
         alt={title}
         src={thumbnail}
         loading="lazy"
