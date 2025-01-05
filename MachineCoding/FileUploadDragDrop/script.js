@@ -17,7 +17,6 @@ dropArea.addEventListener("dragleave", () => {
 dropArea.addEventListener("drop", (e) => {
   e.preventDefault();
   dropArea.classList.remove("dragging");
-
   const files = e.dataTransfer.files;
   if (files.length > 0) {
     handleFileUpload(files[0]);

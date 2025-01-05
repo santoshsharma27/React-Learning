@@ -5,15 +5,15 @@ function deepCopy(obj) {
   }
 
   // Create a new object or array depending on the input type
-  const copy = Array.isArray(obj) ? [] : {};
+  const copyObj = Array.isArray(obj) ? [] : {};
 
   for (const key in obj) {
     if (obj.hasOwnProperty(key)) {
       // Recursively copy each property
-      copy[key] = deepCopy(obj[key]);
+      copyObj[key] = deepCopy(obj[key]);
     }
   }
-  return copy;
+  return copyObj;
 }
 
 // Usage
