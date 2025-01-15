@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
-const LIMIT = 10;
+const LIMIT = 10; // Number of products per page
+const PAGINATION_GROUP_SIZE = 10; // Number of page numbers to display at a time
 
 function Pagination() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
+  const [paginationStart, setPaginationStart] = useState(0); // Start of pagination group
 
   useEffect(() => {
     fetchProducts();
@@ -35,11 +37,17 @@ function Pagination() {
   }
 
   function prevButtonClickHandler() {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0)); // Ensure it doesn't go below 0
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
+    if (currentPage % PAGINATION_GROUP_SIZE === 0 && paginationStart > 0) {
+      setPaginationStart(paginationStart - PAGINATION_GROUP_SIZE);
+    }
   }
 
   function nextButtonClickHandler() {
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages - 1)); // Ensure it doesn't exceed total pages
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
+    if ((currentPage + 1) % PAGINATION_GROUP_SIZE === 0) {
+      setPaginationStart(paginationStart + PAGINATION_GROUP_SIZE);
+    }
   }
 
   return (
@@ -66,29 +74,32 @@ function Pagination() {
             <button
               className="rounded-md bg-blue-600 px-6 py-2 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={prevButtonClickHandler}
-              disabled={currentPage === 0} // Disable when on the first page
+              disabled={currentPage === 0}
             >
               {"<"}
             </button>
 
-            {[...Array(totalPages).keys()].map((number) => (
-              <button
-                className={`rounded-md px-2 py-2 text-lg font-semibold text-gray-700 transition duration-300 ${
-                  number === currentPage
-                    ? "bg-blue-600 font-bold text-white"
-                    : "hover:bg-blue-200"
-                }`}
-                key={number}
-                onClick={() => setCurrentPage(number)}
-              >
-                {number + 1}
-              </button>
-            ))}
+            {[...Array(PAGINATION_GROUP_SIZE).keys()]
+              .map((index) => index + paginationStart)
+              .filter((page) => page < totalPages)
+              .map((page) => (
+                <button
+                  className={`rounded-md px-3 py-2 text-lg font-semibold transition duration-300 ${
+                    page === currentPage
+                      ? "bg-blue-600 font-bold text-white"
+                      : "text-gray-700 hover:bg-blue-200"
+                  }`}
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                >
+                  {page + 1}
+                </button>
+              ))}
 
             <button
               className="rounded-md bg-blue-600 px-6 py-2 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={nextButtonClickHandler}
-              disabled={currentPage === totalPages - 1} // Disable when on the last page
+              disabled={currentPage === totalPages - 1}
             >
               {">"}
             </button>

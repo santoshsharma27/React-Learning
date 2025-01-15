@@ -8,7 +8,7 @@ const promise2 = new Promise((resolve, reject) => {
 
 Promise.race([promise1, promise2])
   .then((value) => {
-    console.log(value);
+    console.log(value); // one
   })
   .catch((err) => {
     console.log(err);

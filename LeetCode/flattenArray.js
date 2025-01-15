@@ -31,11 +31,11 @@ console.log(flatArr(arr2, [])); // [ 1, 2, 3, 4, 5 ]
 // Third way
 
 function flattenArray(arr, finalArr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (Array.isArray(arr[i])) {
-      flattenArray(arr[i], finalArr); // Recursive call
+  for (let a of arr) {
+    if (Array.isArray(a)) {
+      flattenArray(a, finalArr); // Recursive call
     } else {
-      finalArr.push(arr[i]);
+      finalArr.push(a);
     }
   }
   return finalArr;

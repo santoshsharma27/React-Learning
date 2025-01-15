@@ -10,4 +10,4 @@ function duplicateCount(arr) {
   return output.length;
 }
 
-console.log(duplicateCount([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+console.log(duplicateCount([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])); // 5

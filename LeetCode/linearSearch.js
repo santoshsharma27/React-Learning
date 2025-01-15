@@ -10,4 +10,4 @@ function linearSearch(arr, target) {
 // Example usage:
 const arr = [10, 23, 45, 70, 11, 15];
 const target = 45;
-console.log(linearSearch(arr, target));
+console.log(linearSearch(arr, target)); // 2

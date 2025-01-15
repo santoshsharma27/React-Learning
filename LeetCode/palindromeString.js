@@ -21,3 +21,20 @@ function palindrome2(str) {
 
 console.log(palindrome2("madam")); // true
 console.log(palindrome2("santosh")); // false
+
+//////////////////////////
+
+function palindrome3(str) {
+  const len = str.length;
+
+  for (let i = 0; i < len / 2; i++) {
+    if (str[i] !== str[len - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(palindrome3("madam")); // true
+console.log(palindrome3("hello")); // false
+console.log(palindrome3("racecar")); // true

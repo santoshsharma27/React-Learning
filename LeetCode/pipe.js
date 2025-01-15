@@ -1,5 +1,5 @@
-/*A pipe function in JavaScript allows you to compose multiple functions into a single function, where the output of each function is passed as the input to 
-the next one
+/*A pipe function in JavaScript allows you to compose multiple functions into a single function, where the output of each function 
+is passed as the input to the next one
 
 */
 
