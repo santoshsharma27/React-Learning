@@ -10,3 +10,15 @@ let promise = new Promise((resolve, reject) => {
 promise
   .then((result) => console.log(result)) // If promise is fulfilled
   .catch((error) => console.error(error)); // If promise is rejected
+
+////////////////////////////
+
+let p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve({ userName: "Santosh", password: "12345" });
+  }, 1000);
+});
+
+p1.then((user) => {
+  console.log(user);
+}).catch((err) => console.log(err));

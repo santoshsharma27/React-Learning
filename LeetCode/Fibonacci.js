@@ -24,7 +24,7 @@ console.log(fibonacci(6));
 function fibonacci(n) {
   let fib = [0, 1]; // Initialize the first two numbers of the sequence
 
-  for (let i = 2; i < n; i++) {
+  for (let i = 2; i <= n; i++) {
     fib[i] = fib[i - 1] + fib[i - 2]; // Compute the next number as the sum of the previous two
   }
 
