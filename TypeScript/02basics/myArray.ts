@@ -1,6 +1,6 @@
 const superHeros: string[] = [];
-// const heroPower: number[] = []
-const heroPower: Array<number> = [];
+const heroPower: number[] = [];
+const heroPowers: Array<number> = [];
 
 type User = {
   name: string;
