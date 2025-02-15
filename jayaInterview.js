@@ -291,8 +291,8 @@ const CurrencyConverter = () => {
           <label>From Currency:</label>
           <select value={fromCurrency} onChange={handleFromCurrencyChange}>
             <option value="USD">USD</option>
-           <option value="EUR">EUR</option>
-		   <option value="INR">INR</option>
+            <option value="EUR">EUR</option>
+		        <option value="INR">INR</option>
           </select>
         </div>
         <div>

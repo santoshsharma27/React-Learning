@@ -28,7 +28,7 @@ function fibonacci(n) {
     fib[i] = fib[i - 1] + fib[i - 2]; // Compute the next number as the sum of the previous two
   }
 
-  return fib.slice(0, n); // Return the sequence up to 'n' elements
+  return fib;
 }
 
 // Recursive
