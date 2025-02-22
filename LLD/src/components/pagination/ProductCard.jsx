@@ -18,9 +18,7 @@ function ProductCard({
         loading="lazy"
       />
       <div className="p-4">
-        <h2 className="truncate text-xl font-semibold text-gray-800">
-          {title}
-        </h2>
+        <h2 className="truncate font-semibold text-gray-800">{title}</h2>
         <h3 className="mt-1 text-lg font-medium text-gray-600">
           ₹{Math.round(price)}
         </h3>
