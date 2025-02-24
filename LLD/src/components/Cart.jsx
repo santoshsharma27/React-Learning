@@ -1,6 +1,13 @@
+import FormComponent from "../reusableComponents/FormComponent";
+
 function Cart() {
   return (
-    <div>Cart Page, You can see this page because are a authenticated user</div>
+    <>
+      <div className="p-10 text-center">
+        Cart Page, You can see this page because are a authenticated user
+      </div>
+      <FormComponent />
+    </>
   );
 }
 
