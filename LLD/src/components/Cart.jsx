@@ -1,6 +1,7 @@
 import FormComponent from "../reusableComponents/FormComponent";
+import { memo } from "react";
 
-function Cart() {
+const Cart = memo(function Cart() {
   return (
     <>
       <div className="p-10 text-center">
@@ -9,6 +10,6 @@ function Cart() {
       <FormComponent />
     </>
   );
-}
+});
 
 export default Cart;

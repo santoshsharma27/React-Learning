@@ -1,7 +1,7 @@
 class Node {
-  constructor(data, next = null) {
+  constructor(data) {
     this.data = data;
-    this.next = next;
+    this.next = null;
   }
 }
 
@@ -23,66 +23,103 @@ class LinkedList {
       current = current.next;
     }
   }
-}
 
-// Insert at the beginning
-LinkedList.prototype.insertAtBeginning = function (data) {
-  const newNode = new Node(data);
-  newNode.next = this.head;
-  this.head = newNode;
-};
-
-// Insert at the end
-LinkedList.prototype.insertAtEnd = function (data) {
-  const newNode = new Node(data);
-  if (!this.head) {
+  // Method to add a new node at the beginning of the list
+  insertAtBeginning(data) {
+    const newNode = new Node(data);
+    newNode.next = this.head;
     this.head = newNode;
-    return;
-  }
-  let last = this.head;
-  while (last.next) {
-    last = last.next;
-  }
-  last.next = newNode;
-};
-
-// Insert after a given node
-LinkedList.prototype.insertAfter = function (prevNode, data) {
-  if (!prevNode) {
-    console.log("The given prev node cannot be null");
-    return;
   }
 
-  const newNode = new Node(data, prevNode.next);
-  prevNode.next = newNode;
-};
+  // Method to add a new node at the end of the list
+  insertAtEnd = function (data) {
+    const newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+      return;
+    }
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = newNode;
+  };
 
-// Delete the first node
-LinkedList.prototype.deleteFirstNode = function () {
-  if (!this.head) {
-    return;
+  // Method to insert a new node at a specific index
+  insert(data, index) {
+    if (index < 0) {
+      console.log("Index out of range");
+      return;
+    }
+
+    if (index === 0) {
+      this.prepend(data);
+      return;
+    }
+
+    const node = new Node(data);
+    let current = this.head;
+    let previous = null;
+    let currentIndex = 0;
+
+    while (current && currentIndex < index) {
+      previous = current;
+      current = current.next;
+      currentIndex++;
+    }
+
+    if (currentIndex !== index) {
+      console.log("Index out of range");
+      return;
+    }
+
+    node.next = current;
+    previous.next = node;
   }
-  this.head = this.head.next;
-};
 
-// Delete the last node
-LinkedList.prototype.deleteLastNode = function () {
-  if (!this.head) {
-    return; // Nothing to delete because list is empty
+  // Delete the first node
+  deleteFirstNode = function () {
+    if (!this.head) {
+      return;
+    }
+    this.head = this.head.next;
+  };
+
+  // Delete the last node
+  deleteLastNode = function () {
+    if (!this.head) {
+      return; // Nothing to delete because list is empty
+    }
+
+    if (!this.head.next) {
+      this.head = null; // If there is only one node
+      return;
+    }
+
+    let current = this.head;
+    while (current.next.next) {
+      current = current.next;
+    }
+
+    current.next = null; // Remove the last node
+  };
+
+  // Reverse the list
+  reverse() {
+    let prev = null;
+    let current = this.head;
+    let next = null;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    this.head = prev;
   }
-
-  if (!this.head.next) {
-    this.head = null; // If there is only one node
-    return;
-  }
-
-  let secondLast = this.head;
-  while (secondLast.next.next) {
-    secondLast = secondLast.next;
-  }
-
-  secondLast.next = null; // Remove the last node
-};
+}
 
 // Usage
 const list = new LinkedList();
@@ -91,6 +128,9 @@ list.insertAtBeginning(20);
 list.insertAtBeginning(30);
 
 list.print(); // Output: 30, 20, 10
+list.reverse();
+console.log("==============");
+list.print();
 
 console.log("==============");
 

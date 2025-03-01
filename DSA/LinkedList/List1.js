@@ -21,26 +21,59 @@ class LinkedList {
 
   // Method to add a new node at the beginning of the list
   prepend(data) {
-    const node = new Node(data);
+    const newNode = new Node(data);
     node.next = this.head; // The new node's next points to the old head
-    this.head = node; // The head now points to the new node
+    this.head = newNode; // The head now points to the new node
     this.size++;
   }
 
   // Method to add a new node at the end of the list
-
   append(data) {
-    const node = new Node(data);
+    const newNode = new Node(data);
     if (!this.head) {
       this.head = node;
     } else {
-      let last = this.head;
-      while (last.next) {
-        last = last.next;
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
       }
-      last.next = node;
+      current.next = newNode;
     }
     this.size++;
+  }
+
+  // Method to insert a new node at a specific index
+  insert(data, index) {
+    if (index < 0) {
+      console.log("Index out of range");
+      return;
+    }
+
+    if (index === 0) {
+      this.prepend(data);
+      return;
+    }
+
+    const node = new Node(data);
+    let current = this.head;
+    let previous = null;
+    let currentIndex = 0;
+
+    // Traverse to the desired index or the end of the list
+    while (current && currentIndex < index) {
+      previous = current;
+      current = current.next;
+      currentIndex++;
+    }
+
+    if (currentIndex !== index) {
+      console.log("Index out of range");
+      return;
+    }
+
+    // Insert the new node at the specified index
+    node.next = current;
+    previous.next = node;
   }
 
   // Display all nodes in the list
@@ -55,22 +88,6 @@ class LinkedList {
       console.log(current.data);
       current = current.next;
     }
-  }
-
-  // Method to insert a new node at a specific index
-
-  insert(data, index) {
-    if (index < 0) {
-      console.log("Index out of range");
-      return;
-    }
-
-    if (index === 0) {
-      this.prepend(data);
-      return;
-    }
-
-    const node = new Node(data);
   }
 }
 
