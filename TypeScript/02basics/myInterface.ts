@@ -8,6 +8,7 @@ interface User {
   getCoupon(couponName: string, value: number): number;
 }
 
+// Adds new property to existing interface
 interface User {
   githubToken: string;
 }

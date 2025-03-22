@@ -1,7 +1,7 @@
 // const User = {
 //   name: "santosh",
 //   email: "santosh37kr",
-//   isAvtive: true,
+//   isActive: true,
 // };
 
 // function createUser({ name: string, isPaid: boolean }) {}
@@ -35,14 +35,14 @@ type User = {
 };
 
 const myUser: User = {
-  _id: "1245",
+  _id: "12345",
   name: "santosh",
   email: "santosh37.com",
   isActive: false,
 };
 
 type cardNumber = {
-  cardnumber: string;
+  cardNumber: string;
 };
 
 type cardDate = {
@@ -53,5 +53,17 @@ type cardDetails = cardNumber &
   cardDate & {
     cvv: number;
   };
+
+//////////////
+
+type Person = {
+  name: string;
+};
+
+type Employee = Person & {
+  role: string;
+};
+
+const emp: Employee = { name: "Santosh", role: "Developer" };
 
 export {};

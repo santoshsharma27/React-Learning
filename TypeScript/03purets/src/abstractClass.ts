@@ -1,6 +1,7 @@
 abstract class TakePhoto {
   constructor(public cameraMode: string, public filter: string) {}
 
+  // Abstract method (must be implemented in subclasses)
   abstract getSepia(): void;
 
   getReelTime(): number {
@@ -25,5 +26,5 @@ class Instagram extends TakePhoto {
 
 const ss = new Instagram("test", "Test", 3);
 
-ss.getReelTime();
-ss.getSepia();
+ss.getReelTime(); // 8
+ss.getSepia(); // Sepia

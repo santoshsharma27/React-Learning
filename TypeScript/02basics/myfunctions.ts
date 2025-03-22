@@ -23,7 +23,7 @@ const getHello = (s: string): string => {
   return "";
 };
 
-const heros = ["thor", "spiderman", "ironman"];
+const heros: string[] = ["thor", "spiderman", "ironman"];
 // const heros = [1, 2, 3]
 
 heros.map((hero) => {
