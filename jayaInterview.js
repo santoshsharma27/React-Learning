@@ -718,8 +718,8 @@ export default ErrorBoundary;
 =======================================================================================
 
 
-const num=[2,4,3,1,8,7];
-const evenNum=num.filter(num=>num%2===0);
+const nums=[2,4,3,1,8,7];
+const evenNum=nums.filter(num=>num%2===0);
 console.log(evenNum);
 
 ============================================

@@ -15,6 +15,7 @@ function Home() {
       if (!res.ok) throw new Error("Something went wrong with fetching memes");
 
       const data = await res.json();
+
       setMemes((prevMemes) => [...prevMemes, ...data.memes]);
       setPage((prevPage) => prevPage + 1); // Increment page for next fetch
     } catch (err) {
@@ -44,12 +45,12 @@ function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <div className="flex flex-wrap justify-center pt-5">
       {memes.map((meme, i) => (
         <MemeCard key={i} meme={meme} />
       ))}
-
       {isLoading && <Shimmer />}
     </div>
   );

@@ -42,7 +42,7 @@ class Queue {
   printQueue() {
     let str = "";
     for (let i = 0; i < this.items.length; i++) {
-      str += this.items[i] + "\n";
+      str += this.items[i] + " ";
     }
     return str;
   }
@@ -55,11 +55,11 @@ queue.enqueue(10);
 queue.enqueue(20);
 queue.enqueue(30);
 
-console.log(queue.printQueue()); // Displays 10, 20, 30 each on a new line
+console.log(queue.printQueue()); // 10 20 30
 console.log(queue.display()); // [10, 20, 30]
 
 queue.dequeue();
-console.log(queue.printQueue()); // Displays 20, 30 each on a new line
+console.log(queue.printQueue()); //  20 30
 
 queue.clear();
 console.log(queue.display()); // []

@@ -45,7 +45,7 @@ class Stack {
   printStack() {
     let str = "";
     for (let i = 0; i < this.items.length; i++) {
-      str += this.items[i] + "\n";
+      str += this.items[i] + " ";
     }
     return str;
   }
@@ -62,7 +62,7 @@ stack.push(5);
 stack.push(6);
 stack.push(7);
 
-console.log(stack.printStack()); // Prints 5, 6, 7 each on a new line
+console.log(stack.printStack()); // 5, 6, 7
 console.log(stack.display()); // [5, 6, 7]
 
 console.log(stack.peek()); // 7

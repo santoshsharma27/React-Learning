@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 function MemeCard({ meme }) {
   const { url, author, title } = meme;
 
@@ -16,14 +17,6 @@ function MemeCard({ meme }) {
         {title && (
           <p className="mt-1 truncate text-sm text-gray-600">{title}</p>
         )}
-      </div>
-      <div className="flex items-center justify-between border-t border-gray-200 bg-gray-100 p-4">
-        <button className="rounded-full bg-indigo-500 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-          Like
-        </button>
-        <button className="rounded-full bg-pink-500 px-4 py-2 text-sm font-semibold text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-400">
-          Share
-        </button>
       </div>
     </div>
   );

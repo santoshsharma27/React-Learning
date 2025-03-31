@@ -23,10 +23,13 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+
+        {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
           <Route path="cart" element={<Cart />} />
           <Route path="order" element={<Order />} />
         </Route>
+
         <Route path="accordion" element={<Accordion />} />
         <Route path="imageSlider" element={<ImageSlider />} />
         <Route
