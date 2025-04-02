@@ -1,5 +1,5 @@
 function factorial(num) {
-  if (num === 0) return 1;
+  if (num === 0 || num === 1) return 1;
 
   let result = 1;
 
@@ -15,7 +15,7 @@ console.log(factorial(5));
 // Recursive
 
 function recursiveFactorial(num) {
-  if (num === 0) return 1;
+  if (num === 0 || num === 1) return 1;
   return num * recursiveFactorial(num - 1);
 }
 

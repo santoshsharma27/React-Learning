@@ -2,6 +2,7 @@ function memoize(fn) {
   const cache = {}; // Store previous computations
 
   return function (...args) {
+    // Accept multiple arguments
     const key = JSON.stringify(args); // Use arguments as cache key
     if (cache[key] !== undefined) {
       console.log(`Returning cached result for ${key}`);
@@ -30,10 +31,11 @@ console.log(memoizedAdd(2, 3)); // Outputs: Returning cached result for [2,3] 5
 // Task 8 :  Create a memorized version of a function that calculates the factorial of a number .
 
 function memoizeFactorial() {
-  const cache = {}; // Store previous computations
+  const cache = {};
 
   function factorial(n) {
-    if (n <= 1) return 1; // Base case
+    if (num === 0 || num === 1) return 1; // Base case
+
     if (cache[n] !== undefined) {
       console.log(`Returning cached result for ${n}`);
       return cache[n]; // Return cached result if available
