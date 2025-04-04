@@ -9,7 +9,7 @@ function countkeyInAarray(array, key) {
 }
 
 const arr = [1, 2, 4, 2, 4, 2, 6];
-console.log(countkeyInAarray(arr, 2));
+console.log(countkeyInAarray(arr, 2)); // 3
 
 // For String
 

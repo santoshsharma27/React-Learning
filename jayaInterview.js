@@ -522,7 +522,7 @@ test('fetchData should call getData with correct arguments', async () => {
   getDataSpy.mockRestore();
 });
 
-
+=================================================================================================
 
 import React, { useState } from 'react';
 
@@ -570,8 +570,8 @@ export default CountryDropdown;
 /* console.log(Array.from(mySet)); */
 /* console.log([...mySet]); */
 const arr=[2,6,4,9,3,2,7,3,6];
-const newArray=arr.filter((num,index,array1)=>{
-	return index === array1.indexOf(num);
+const newArray=arr.filter((num,index,arr)=>{
+	return arr.indexOf(num) === index;
 })
 console.log(newArray);
 //[2, 6, 4, 9, 3, 7]
@@ -592,10 +592,9 @@ console.log(output);//[4, 5, 6, 8]
 
 const str='accessibility';
 const objectVal={};
-for(let i=0; i<str.length;i++ ){
-    let char= str[i];
+for(let char of str ){
     if(objectVal[char]){
-objectVal[char] += 1;
+        objectVal[char]++;
     }else{
         objectVal[char]=1;
     }
@@ -672,8 +671,9 @@ const arr=[
 		value: "#000"
 	}
 ]
-const uniqueArr = arr.filter((obj, index, self) =>
-    index === self.findIndex((t) => (
+
+const uniqueArr = arr.filter((obj, index, arr) =>
+    index === arr.findIndex((t) => (
         t.color === obj.color
     ))
 );
