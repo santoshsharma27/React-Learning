@@ -76,10 +76,10 @@ console.log(person2);
 // Task 9: Create an object with computed property names based on variables and log the object to the console.
 
 const property = "firstName";
-const name = "Santosh";
+const value = "Santosh";
 
 const user = {
-  [property]: name,
+  [property]: value,
 };
 
 console.log(user); // { firstName: 'Santosh' }

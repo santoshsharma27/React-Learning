@@ -117,5 +117,5 @@ const promise5 = new Promise((resolve, reject) => {
 
 Promise.race([promise4, promise5]).then((value) => {
   console.log(value);
-  // Both resolve, but promise2 is faster
+  // Both resolve, but promise5 is faster
 });

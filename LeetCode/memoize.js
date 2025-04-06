@@ -34,7 +34,7 @@ function memoizeFactorial() {
   const cache = {};
 
   function factorial(n) {
-    if (num === 0 || num === 1) return 1; // Base case
+    if (n === 0 || n === 1) return 1; // Base case
 
     if (cache[n] !== undefined) {
       console.log(`Returning cached result for ${n}`);

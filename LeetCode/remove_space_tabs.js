@@ -2,8 +2,7 @@
 
 function removeTAS(str) {
   let result = "";
-  for (let i = 0; i < str.length; i++) {
-    let char = str[i];
+  for (let char of str) {
     if (char !== " " && char !== "\t") {
       result += char;
     }

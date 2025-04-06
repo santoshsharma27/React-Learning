@@ -22,7 +22,6 @@ function Order() {
   const handleRadioChange = (e) => {
     const value = e.target.value;
     setShowInput(value === "yes");
-    setText("");
     setError("");
   };
 

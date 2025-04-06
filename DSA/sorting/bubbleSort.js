@@ -2,7 +2,7 @@ function bubbleSort(arr) {
   const arrLength = arr.length;
   let isSwapped;
 
-  for (let i = 0; i < arrLength; i++) {
+  for (let i = 0; i < arrLength - 1; i++) {
     isSwapped = false;
 
     for (j = 0; j < arrLength - i - 1; j++) {

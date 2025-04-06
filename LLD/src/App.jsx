@@ -12,6 +12,7 @@ import Shimmer from "./components/Shimmer";
 import Traffic from "./components/Traffic";
 import Expander from "./components/TextExpander/Expander";
 import NavBar from "./components/NavBar";
+import NestedCheckBox from "./components/NestedCheckBox";
 // import Pagination from "./components/pagination/Pagination";
 
 // Lazy Loading
@@ -43,6 +44,7 @@ function App() {
         <Route path="search" element={<Search />} />
         <Route path="traffic" element={<Traffic />} />
         <Route path="textExpander" element={<Expander />} />
+        <Route path="checkbox" element={<NestedCheckBox />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
