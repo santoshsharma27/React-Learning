@@ -17,6 +17,8 @@ function maxProfit(prices) {
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
 console.log(maxProfit([7, 6, 5, 4, 3, 2])); // Output: 0 (no profit possible)
 
+// Time Complexity: O(n²) — slow for large arrays
+
 //////////////////////
 
 function maxProfit(prices) {
@@ -27,7 +29,10 @@ function maxProfit(prices) {
     if (prices[i] < minPrice) {
       minPrice = prices[i]; // Update the minimum price
     } else {
-      maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+      const profit = prices[i] - minPrice;
+      if (profit > maxProfit) {
+        maxProfit = profit;
+      }
     }
   }
 
@@ -38,3 +43,5 @@ function maxProfit(prices) {
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
 console.log(maxProfit([7, 6, 5, 4, 3, 2])); // Output: 0 (no profit possible)
+
+// Time Complexity: O(n)
