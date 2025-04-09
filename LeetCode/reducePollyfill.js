@@ -1,6 +1,6 @@
-Array.prototype.myReduce = function (callback, initialValue) {
+Array.prototype.myReduce = function (cb, initialValue) {
   // Ensure callback is not a function
-  if (typeof callback !== "function") {
+  if (typeof cb !== "function") {
     throw new Error("callback is not a function");
   }
 
@@ -20,7 +20,7 @@ Array.prototype.myReduce = function (callback, initialValue) {
 
   // Lopp through the array
   for (let i = startIndex; i < this.length; i++) {
-    acc = callback(acc, this[i], i, this);
+    acc = cb(acc, this[i], i, this);
   }
 
   return acc;

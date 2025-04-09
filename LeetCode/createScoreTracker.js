@@ -6,6 +6,6 @@ function createScoreTracker(n) {
 }
 
 const result = createScoreTracker(10);
-console.log(result());
-console.log(result());
-console.log(result());
+console.log(result()); // 10
+console.log(result()); // 11
+console.log(result()); // 12

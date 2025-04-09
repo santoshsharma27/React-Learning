@@ -10,7 +10,7 @@ function factorial(num) {
   return result;
 }
 
-console.log(factorial(5));
+console.log(factorial(5)); // 120
 
 // Recursive
 
@@ -19,4 +19,4 @@ function recursiveFactorial(num) {
   return num * recursiveFactorial(num - 1);
 }
 
-console.log(recursiveFactorial(5));
+console.log(recursiveFactorial(5)); // 120

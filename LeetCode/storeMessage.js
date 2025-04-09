@@ -5,4 +5,4 @@ function storeMessage(message) {
 }
 
 const result = storeMessage("Santosh");
-console.log(result());
+console.log(result()); // Santosh

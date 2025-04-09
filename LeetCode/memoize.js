@@ -1,15 +1,14 @@
 function memoize(fn) {
-  const cache = {}; // Store previous computations
+  const cache = {};
 
   return function (...args) {
-    // Accept multiple arguments
-    const key = JSON.stringify(args); // Use arguments as cache key
+    const key = JSON.stringify(args);
     if (cache[key] !== undefined) {
       console.log(`Returning cached result for ${key}`);
       return cache[key]; // Return cached result if available
     } else {
       console.log(`Computing result for ${key}`);
-      const result = fn(...args); // Compute result
+      const result = fn(...args);
       cache[key] = result;
       return result;
     }

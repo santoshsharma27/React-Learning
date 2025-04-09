@@ -17,19 +17,21 @@ function fibonacci(num) {
   return temp;
 }
 
-console.log(fibonacci(6));
+console.log(fibonacci(6)); // 8
 
 ///////////////////////////////////////
 
-function fibonacci(n) {
+function fibonacci2(n) {
   let fib = [0, 1]; // Initialize the first two numbers of the sequence
 
   for (let i = 2; i <= n; i++) {
-    fib[i] = fib[i - 1] + fib[i - 2]; // Compute the next number as the sum of the previous two
+    fib[i] = fib[i - 1] + fib[i - 2];
   }
 
   return fib;
 }
+
+console.log(fibonacci2(6)); // [ 0, 1, 1, 2, 3, 5, 8]
 
 // Recursive
 
@@ -41,6 +43,6 @@ function recursiveFibonacci(num) {
   return recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2);
 }
 
-console.log(recursiveFibonacci(6));
+console.log(recursiveFibonacci(6)); // 8
 
 // Fibonacci numbers with a time complexity of O(n)

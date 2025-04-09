@@ -1,5 +1,4 @@
 function deepCopy(obj) {
-  // Check if the input is an object or an array, otherwise return the value directly
   if (obj === null || typeof obj !== "object") {
     return obj;
   }
@@ -9,7 +8,6 @@ function deepCopy(obj) {
 
   for (const key in obj) {
     if (obj.hasOwnProperty(key)) {
-      // Recursively copy each property
       copyObj[key] = deepCopy(obj[key]);
     }
   }

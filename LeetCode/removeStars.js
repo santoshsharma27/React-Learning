@@ -1,11 +1,7 @@
-/**
- * @param {string}
- * @return {string}
- */
-var removeStars = function (s) {
+function removeStars(str) {
   let stack = [];
 
-  for (let char of s) {
+  for (let char of str) {
     if (char === "*") {
       // Remove the last character from the stack if there is any
       if (stack.length > 0) {
@@ -17,7 +13,7 @@ var removeStars = function (s) {
     }
   }
 
-  return stack.join("");
-};
+  return stack.join(""); // convert array to string
+}
 
 console.log(removeStars("leet**cod*e")); // Output: "lecoe"

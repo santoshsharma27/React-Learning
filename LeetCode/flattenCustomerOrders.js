@@ -37,3 +37,13 @@ const customers = [
 ];
 
 console.log(flattenCustomerOrders(customers));
+
+/*
+
+[
+  { username: 'Santosh', item: 'Laptop', amount: 30000 },
+  { username: 'Santosh', item: 'Phone', amount: 15000 },
+  { username: 'Kumar', item: 'Tablet', amount: 20000 }
+]
+
+*/

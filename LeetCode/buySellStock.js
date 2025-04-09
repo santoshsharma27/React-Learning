@@ -1,27 +1,27 @@
 // prices is any array here
 
-function maxProfit(prices) {
-  let globalProfit = 0;
+function stock(prices) {
+  let maxProfit = 0;
 
-  for (let i = 0; i < prices.length - 1; i++) {
+  for (let i = 0; i < prices.length; i++) {
     for (let j = i + 1; j < prices.length; j++) {
       const currentProfit = prices[j] - prices[i];
-      if (currentProfit > globalProfit) {
-        globalProfit = currentProfit;
+      if (currentProfit > maxProfit) {
+        maxProfit = currentProfit;
       }
     }
   }
-  return globalProfit;
+  return maxProfit;
 }
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
-console.log(maxProfit([7, 6, 5, 4, 3, 2])); // Output: 0 (no profit possible)
+console.log(stock([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
+console.log(stock([7, 6, 5, 4, 3, 2])); // Output: 0 (no profit possible)
 
 // Time Complexity: O(n²) — slow for large arrays
 
 //////////////////////
 
-function maxProfit(prices) {
+function stock1(prices) {
   let minPrice = prices[0];
   let maxProfit = 0;
 
@@ -41,7 +41,7 @@ function maxProfit(prices) {
 
 // Example usage:
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
-console.log(maxProfit([7, 6, 5, 4, 3, 2])); // Output: 0 (no profit possible)
+console.log(stock1([7, 1, 5, 3, 6, 4])); // Output: 5 (buy at 1, sell at 6)
+console.log(stock1([7, 6, 5, 4, 3, 2])); // Output: 0 (no profit possible)
 
 // Time Complexity: O(n)

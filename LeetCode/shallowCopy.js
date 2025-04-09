@@ -15,12 +15,12 @@ const santosh = {
   city: "Bangalore",
 };
 
-const sandeep = { ...santosh };
+const c = { ...santosh };
 
-sandeep.city = "Hajipur";
+c.city = "Hajipur";
 
 console.log(santosh.city); // Bangalore
-console.log(sandeep.city); // Hajipur
+console.log(c.city); // Hajipur
 
 // Using Object.assign
 
@@ -28,9 +28,9 @@ const person = {
   name: "Tara",
 };
 
-const final = Object.assign({}, person);
+const d = Object.assign({}, person);
 
-final.name = "Sintoo";
+d.name = "Sintoo";
 
 console.log(person.name); // Tara
-console.log(final.name); // Sintoo
+console.log(d.name); // Sintoo

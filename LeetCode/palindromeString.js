@@ -1,12 +1,10 @@
 function palindrome(str) {
-  // Reverse the string
   let res = "";
   const length = str.length;
   for (let i = length - 1; i >= 0; i--) {
     res += str[i];
   }
 
-  // Return true if the reversed string matches the original
   return res === str;
 }
 
