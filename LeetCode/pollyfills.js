@@ -23,7 +23,7 @@ Array.prototype.myMap = function (cb) {
 };
 
 const doubled = arr.myMap((item) => item * 2);
-console.log(doubled);
+console.log(doubled); // [ 2, 4, 6, 8, 10 ]
 
 // filter()
 
@@ -38,7 +38,7 @@ Array.prototype.myFilter = function (cb) {
 };
 
 const result = arr.myFilter((item) => item > 2);
-console.log(result);
+console.log(result); // [ 3, 4, 5 ]
 
 // Reduce()
 Array.prototype.myReduce = function (cb, initialValue) {
@@ -63,42 +63,48 @@ console.log(sum); // Output: 15
 
 // call()
 
-Function.prototype.myCall = function (context, ...args) {
-  context.myFn = this;
-  context.myFn(...args);
-};
-
-// Example usage
-
 const person = {
   firstName: "Santosh",
 };
 
 function greet(greeting, lastName) {
-  return `${greeting}, ${this.firstName} ${this.lastName}`;
+  console.log(`${greeting}, ${this.firstName} ${lastName}`);
 }
 
+Function.prototype.myCall = function (context = {}, ...args) {
+  if (typeof this !== "function") {
+    throw new Error("Its not callable");
+  }
+  context.fn = this;
+  context.fn(...args);
+};
+
 // Using our custom myCall method
-console.log(greet.myCall(person, "Hello", "Sharma")); // Output: "Hello, Santosh Sharma"
+greet.myCall(person, "Hello", "Sharma"); // Output: "Hello, Santosh Sharma"
+
+// apply()
+Function.prototype.myApply = function (context = {}, args = []) {
+  if (typeof this !== "function") {
+    throw new Error("Its not callable");
+  }
+  context.fn = this;
+  context.fn(...args);
+};
+
+// Using our custom myApply method
+greet.myApply(person, ["Hello", "Sharma"]); // Output: "Hello, Santosh Sharma"
 
 // Bind
 
-const person1 = {
-  first: "Santosh",
-  last: "Sharma",
-};
+Function.prototype.myBind = function (context = {}, ...args) {
+  if (typeof this !== "function") {
+    throw new Error("Its not callable");
+  }
 
-let printName = function (town, state) {
-  console.log(this.first + " " + this.last + " " + town + " " + state);
-};
-
-Function.prototype.mybind = function (...args) {
-  let obj = this; // 'this' refers to printName function
-  let params = args.slice(1); // Parameters passed to mybind excluding the context (name)
-  return function (...args2) {
-    //printNameFinal arguments
-    obj.apply(args[0], [...params, ...args2]);
+  context.fn = this;
+  return function (...newArgs) {
+    return context.fn(...args, ...newArgs);
   };
 };
-let printNameFinal = printName.mybind(person1, "Hajipur");
-printNameFinal("Bihar"); // Output: Santosh Sharma Hajipur Bihar
+let results = greet.myBind(person, "Hello");
+results("Sharma"); // Output: "Hello, Santosh Sharma"

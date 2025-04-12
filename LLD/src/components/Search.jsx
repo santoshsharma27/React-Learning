@@ -27,7 +27,7 @@ function Search() {
 
       try {
         setIsLoading(true);
-        setError(null);
+        setError("");
         const res = await fetch(
           `https://www.google.com/complete/search?client=firefox&q=${searchText}`,
           { signal },
@@ -85,6 +85,7 @@ function Search() {
       />
 
       {isLoading && <p>Loading...</p>}
+
       {error && <p className="text-red-500">{error}</p>}
 
       {searchResults.length > 0 && showResults && (
