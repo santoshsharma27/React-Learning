@@ -15,3 +15,4 @@ function multiply(arr) {
 }
 
 console.log(multiply([1, 2, 3])); // [6, 3, 2]
+console.log(multiply([1, 2, 3, 4])); // [24, 12, 8, 6]

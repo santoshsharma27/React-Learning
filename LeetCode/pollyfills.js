@@ -73,7 +73,9 @@ function greet(greeting, lastName) {
 
 Function.prototype.myCall = function (context = {}, ...args) {
   if (typeof this !== "function") {
-    throw new Error("Its not callable");
+    throw new Error(
+      "It is not callable. Ensure you're calling myApply on a function."
+    );
   }
   context.fn = this;
   context.fn(...args);
@@ -85,7 +87,9 @@ greet.myCall(person, "Hello", "Sharma"); // Output: "Hello, Santosh Sharma"
 // apply()
 Function.prototype.myApply = function (context = {}, args = []) {
   if (typeof this !== "function") {
-    throw new Error("Its not callable");
+    throw new Error(
+      "It is not callable. Ensure you're calling myApply on a function."
+    );
   }
   context.fn = this;
   context.fn(...args);
@@ -98,7 +102,9 @@ greet.myApply(person, ["Hello", "Sharma"]); // Output: "Hello, Santosh Sharma"
 
 Function.prototype.myBind = function (context = {}, ...args) {
   if (typeof this !== "function") {
-    throw new Error("Its not callable");
+    throw new Error(
+      "It is not callable. Ensure you're calling myApply on a function."
+    );
   }
 
   context.fn = this;
@@ -106,5 +112,6 @@ Function.prototype.myBind = function (context = {}, ...args) {
     return context.fn(...args, ...newArgs);
   };
 };
+
 let results = greet.myBind(person, "Hello");
 results("Sharma"); // Output: "Hello, Santosh Sharma"

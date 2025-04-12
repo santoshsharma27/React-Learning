@@ -25,4 +25,4 @@ let obj = {
   ],
 };
 
-console.log(getData(obj, []));
+console.log(getData(obj, [])); // [ 'bob1', 'bob2', 'bob3' ]
