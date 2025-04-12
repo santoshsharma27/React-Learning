@@ -7,9 +7,9 @@ function Pagination() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
-  const [totalProducts, setTotalProducts] = useState(0);
   const [error, setError] = useState(null);
 
+  const totalProducts = products.length;
   const noOfPages = Math.ceil(totalProducts / PAGE_SIZE);
   const start = currentPage * PAGE_SIZE;
   const end = start + PAGE_SIZE;
@@ -25,7 +25,6 @@ function Pagination() {
 
       const data = await res.json();
       setProducts(data.products);
-      setTotalProducts(data.products.length);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -69,9 +68,9 @@ function Pagination() {
           </div>
 
           {/* Pagination Controls */}
-          <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center gap-4 bg-white py-4 shadow-md">
+          <div className="fixed right-0 bottom-0 left-0 flex items-center justify-center gap-4 bg-white py-4 shadow-md">
             <button
-              className="rounded-md bg-blue-600 px-6 py-2 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="rounded-md bg-blue-600 px-4 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={handlePrev}
               disabled={currentPage === 0}
             >
@@ -80,7 +79,7 @@ function Pagination() {
 
             {[...Array(noOfPages).keys()].map((index) => (
               <button
-                className={`rounded-md px-2 py-2 text-lg font-semibold transition duration-300 ${
+                className={`rounded-md px-2 text-lg font-semibold transition duration-300 ${
                   index === currentPage
                     ? "bg-blue-600 font-bold text-white"
                     : "text-gray-700 hover:bg-blue-200"
@@ -93,7 +92,7 @@ function Pagination() {
             ))}
 
             <button
-              className="rounded-md bg-blue-600 px-6 py-2 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="rounded-md bg-blue-600 px-4 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={handleNext}
               disabled={currentPage === noOfPages - 1}
             >

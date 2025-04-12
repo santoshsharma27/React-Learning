@@ -22,7 +22,7 @@ const ImageSlider = () => {
   };
 
   return (
-    <div className="relative m-4 mx-auto w-full max-w-screen-lg">
+    <div className="relative m-4 mx-auto w-full max-w-(--breakpoint-lg)">
       <h1 className="text-center text-2xl font-extrabold">Image Slider</h1>
       {/* Left Arrow */}
       <button

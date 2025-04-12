@@ -76,7 +76,7 @@ function Search() {
     <div className="flex flex-col items-center pt-10">
       <input
         type="text"
-        className="h-8 w-2/4 rounded-full border border-gray-200 p-6 shadow-lg focus:outline-none"
+        className="h-8 w-2/4 rounded-full border border-gray-200 p-6 shadow-lg focus:outline-hidden"
         placeholder="Search Google or type a URL"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}

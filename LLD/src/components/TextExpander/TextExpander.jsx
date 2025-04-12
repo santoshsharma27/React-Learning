@@ -23,7 +23,7 @@ function TextExpander({
       <p className="mb-2">{displayText}</p>
       <button
         onClick={toggleExpansion}
-        className={`font-semibold ${buttonColor} hover:underline focus:outline-none`}
+        className={`font-semibold ${buttonColor} hover:underline focus:outline-hidden`}
       >
         {isExpanded ? "Show less" : "Show more"}
       </button>
