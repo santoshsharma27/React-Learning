@@ -243,10 +243,10 @@ console.log(longestCommonString())
 ================================================================================================================================================================================
 Code 17: To find vowels and its count in a given string
 function vowelCounts(){
-  vowels=["a","i","e","o","u"]
-  var str ="priya"
+  let vowels=["a","i","e","o","u"]
+  let str ="priya"
   count=0;
-  for(var letter of str.toLowerCase())
+  for(let letter of str.toLowerCase())
   {
     if(vowels.includes(letter))
     {

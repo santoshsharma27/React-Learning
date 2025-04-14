@@ -2,11 +2,11 @@
 import { useState } from "react";
 
 function TextExpander({
-  collapsedNumWords = 10, // Default number of words to show when collapsed
-  buttonColor = "text-blue-500", // Default button color
-  expanded = false, // Default expanded state
-  className,
-  children, // Text content passed to the component
+  collapsedNumWords = 10,
+  buttonColor = "text-blue-500",
+  expanded = false,
+  className = "",
+  children,
 }) {
   const [isExpanded, setIsExpanded] = useState(expanded);
 
@@ -19,11 +19,11 @@ function TextExpander({
   const toggleExpansion = () => setIsExpanded((prev) => !prev);
 
   return (
-    <div className={`${className} text-gray-800`}>
+    <div className={`text-gray-800 ${className}`}>
       <p className="mb-2">{displayText}</p>
       <button
         onClick={toggleExpansion}
-        className={`font-semibold ${buttonColor} hover:underline focus:outline-hidden`}
+        className={`font-semibold hover:underline focus:outline-hidden ${buttonColor}`}
       >
         {isExpanded ? "Show less" : "Show more"}
       </button>

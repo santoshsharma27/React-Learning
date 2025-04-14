@@ -11,6 +11,7 @@ function factorial(num) {
 }
 
 console.log(factorial(5)); // 120
+// Linear time complexity : O(n)
 
 // Recursive
 

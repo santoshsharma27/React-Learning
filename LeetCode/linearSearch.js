@@ -11,3 +11,5 @@ function linearSearch(arr, target) {
 const arr = [10, 23, 45, 70, 11, 15];
 const target = 45;
 console.log(linearSearch(arr, target)); // 2
+
+// Time complexity: O(n)

@@ -44,5 +44,3 @@ function recursiveFibonacci(num) {
 }
 
 console.log(recursiveFibonacci(6)); // 8
-
-// Fibonacci numbers with a time complexity of O(n)

@@ -26,7 +26,7 @@ function Order() {
   };
 
   return (
-    <div className="pl-10 pt-10">
+    <div className="pt-10 pl-10">
       <div className="m-auto">
         <p>
           Order Page, You can see this page because you are an authenticated
