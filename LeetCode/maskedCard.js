@@ -8,7 +8,7 @@ function maskCreditCardNumber(cardNumber) {
   }
 
   // Get the first digits
-  const firstDigit = cardNumber[0];
+  const firstFourDigit = cardNumber.slice(0, 4);
 
   // Get the last 4 digits
   const lastFourDigit = cardNumber.slice(-4);
@@ -17,18 +17,17 @@ function maskCreditCardNumber(cardNumber) {
   const maskedMiddle = cardNumber.slice(4, -4).replace(/\d/g, "*");
 
   // Concatenate and return the masked credit card number
-  return firstDigit + maskedMiddle + lastFourDigit;
+  return firstFourDigit + maskedMiddle + lastFourDigit;
 }
 
 // Example usage
-console.log(maskCreditCardNumber(1234567812345678)); // Output: "1***********5678"
+console.log(maskCreditCardNumber(1234567812345678)); // Output: 1234********5678
 
 const maskCreditCard = function (number) {
   const str = number + "";
-  const last = str.slice(-4);
-  return last.padStart(str.length, "*");
+  const lastFourDigit = str.slice(-4);
+  return lastFourDigit.padStart(str.length, "*");
 };
 
-console.log(maskCreditCard(64637836));
-console.log(maskCreditCard(43378463864647384));
-console.log(maskCreditCard("334859493847755774747"));
+console.log(maskCreditCard(64637836)); // ****7836
+console.log(maskCreditCard(43378463864647384)); // *************7384

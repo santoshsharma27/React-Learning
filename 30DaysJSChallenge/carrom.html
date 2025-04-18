@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Carrom Board</title>
+    <style>
+      .carrom-board {
+        width: 300px;
+        height: 300px;
+        background: #f5deb3; /* light wood color */
+        border: 10px solid #8b4513; /* dark wood border */
+        border-radius: 10px;
+        position: relative;
+        margin: 50px auto;
+      }
+
+      .carrom-board::before,
+      .carrom-board::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: black;
+        border-radius: 50%;
+      }
+
+      .carrom-board::before {
+        top: 5px;
+        left: 5px;
+        box-shadow: 0 270px 0 0 black, /* bottom-left */ 270px 0 0 0 black,
+          /* top-right */ 270px 270px 0 0 black; /* bottom-right */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carrom-board"></div>
+  </body>
+</html>

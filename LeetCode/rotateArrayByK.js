@@ -1,6 +1,9 @@
 function rotateArray(arr, k) {
   const n = arr.length;
-  k = k % n; // Handle cases where k > n
+  if (k > n) {
+    k = k % n;
+  }
+
   if (k === 0) return arr;
 
   const rotatedArray = [];

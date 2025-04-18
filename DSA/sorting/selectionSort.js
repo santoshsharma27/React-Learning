@@ -12,7 +12,9 @@ function selectionSort(arr) {
     // Swap if both index are different
 
     if (minIndex !== i) {
-      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+      let temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
     }
   }
 

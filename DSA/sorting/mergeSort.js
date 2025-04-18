@@ -1,24 +1,28 @@
-function mergeSortedArrays(arr1, arr2) {
-  let mergedArray = [];
-  let i = 0;
-  let j = 0;
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
 
-  while (i < arr1.length && j < arr2.length) {
-    if (arr1[i] < arr2[j]) {
-      mergedArray.push(arr1[i]);
-      i++;
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+
+  return merge(left, right);
+}
+
+function merge(left, right) {
+  const result = [];
+
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      result.push(left.shift());
     } else {
-      mergedArray.push(arr2[j]);
-      j++;
+      result.push(right.shift());
     }
   }
 
-  // Add any remaining elements
-  return mergedArray.concat(arr1.slice(i)).concat(arr2.slice(j));
+  return result.concat(left, right);
 }
 
-// Example usage:
-let sortedArray1 = [1, 3, 5, 7];
-let sortedArray2 = [2, 4, 6, 8];
-let mergedArray = mergeSortedArrays(sortedArray1, sortedArray2);
-console.log("Merged array:", mergedArray);
+// Example:
+const numbers = [38, 27, 43, 3, 9, 82, 10];
+console.log(mergeSort(numbers));
+// Output: [3, 9, 10, 27, 38, 43, 82]

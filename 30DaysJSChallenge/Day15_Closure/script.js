@@ -14,7 +14,7 @@ outer(); // 10
 
 // Task 2
 
-function Counter() {
+function counter() {
   let count = 0;
   return function incrementCounter() {
     count++;
@@ -22,9 +22,9 @@ function Counter() {
   };
 }
 
-const counter1 = Counter();
-console.log(counter1()); //1
-console.log(counter1()); //2
+const result = counter();
+console.log(result()); //1
+console.log(result()); //2
 
 function createCounter() {
   // Private counter variable

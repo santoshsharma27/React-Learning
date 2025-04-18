@@ -3,13 +3,13 @@ function binarySearch(arr, target) {
   let rightIndex = arr.length - 1;
 
   while (leftIndex <= rightIndex) {
-    let middleIndex = Math.floor((leftIndex + rightIndex) / 2);
-    if (arr[middleIndex] === target) {
-      return middleIndex;
-    } else if (arr[middleIndex] < target) {
-      leftIndex = middleIndex + 1; // search right half
+    let mid = Math.floor((leftIndex + rightIndex) / 2);
+    if (arr[mid] === target) {
+      return mid;
+    } else if (arr[mid] < target) {
+      leftIndex = mid + 1; // search right half
     } else {
-      rightIndex = middleIndex - 1; // search left half
+      rightIndex = mid - 1; // search left half
     }
   }
 

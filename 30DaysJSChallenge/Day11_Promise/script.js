@@ -9,7 +9,7 @@ const p = new Promise((resolve, reject) => {
 
 p.then((value) => {
   console.log(value);
-});
+}); // Promise Resolve in two seconds
 
 // Task 2
 
@@ -22,7 +22,7 @@ const p2 = new Promise((resolve, reject) => {
 p2.then((value) => {
   console.log(value);
 }).catch((err) => {
-  console.error(err);
+  console.error(err); // Promise reject in two seconds
 });
 
 // Task 3
