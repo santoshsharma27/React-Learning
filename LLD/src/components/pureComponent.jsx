@@ -1,6 +1,7 @@
 import { memo, useState } from "react";
 
-const EmployeeProfile = memo(function EmployeeProfile(name, email) {
+const EmployeeProfile = memo(function EmployeeProfile({ name, email }) {
+  console.log("Rendering EmployeeProfile...");
   return (
     <>
       <p>Name:{name}</p>
@@ -14,13 +15,17 @@ export default function EmployeeRegForm() {
   const [email, setEmail] = useState("");
   return (
     <>
-      <label>
-        Name: <input value={name} onChange={(e) => setName(e.target.value)} />
-      </label>
-      <label>
-        Email:{" "}
-        <input value={email} onChange={(e) => setEmail(e.target.value)} />
-      </label>
+      <div>
+        <label>
+          Name: <input value={name} onChange={(e) => setName(e.target.value)} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Email:
+          <input value={email} onChange={(e) => setEmail(e.target.value)} />
+        </label>
+      </div>
       <hr />
       <EmployeeProfile name={name} />
     </>

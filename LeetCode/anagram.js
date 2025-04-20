@@ -9,8 +9,34 @@ function areAnagrams(str1, str2) {
   return sortString(str1) === sortString(str2);
 }
 
-const val1 = "abcd";
-const val2 = "dbca";
-
-const result = areAnagrams(val1, val2);
+const result = areAnagrams("abcd", "bdca");
 console.log(result); // true
+
+////////////////////////////////////
+
+function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) return false;
+
+  const charCount = {};
+
+  // Count characters in str1
+  for (let char of str1) {
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+
+  // Subtract characters using str2
+  for (let char of str2) {
+    if (!charCount[char]) {
+      return false; // either not found or already used up
+    }
+    charCount[char]--;
+  }
+
+  return true;
+}
+
+console.log(isAnagram("abcd", "bdca")); // true

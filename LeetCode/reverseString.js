@@ -1,7 +1,7 @@
 function reverseString(str) {
   let reverse = "";
-  let length = str.length - 1;
-  for (let i = length; i >= 0; i--) {
+  let n = str.length;
+  for (let i = n - 1; i >= 0; i--) {
     reverse += str[i];
   }
   return reverse;
@@ -15,7 +15,7 @@ function recursiveReverseString(str) {
     return "";
   }
 
-  return recursiveReverseString(str.substring(1)) + str[0];
+  return recursiveReverseString(str.substring(1)) + str.charAt[0];
 }
 
 console.log(recursiveReverseString("Hello")); // olleH

@@ -13,4 +13,4 @@ var findDifference = function (nums1, nums2) {
   return [unique1, unique2];
 };
 
-console.log(findDifference([1, 2, 3], [2, 4, 6]));
+console.log(findDifference([1, 2, 3], [2, 4, 6])); //    [ [ 1, 3 ], [ 4, 6 ] ]
