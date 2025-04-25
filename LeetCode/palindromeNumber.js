@@ -8,10 +8,10 @@ function palindrome(num) {
   return result === num; // Directly return the comparison
 }
 
-console.log(palindrome(121));
-console.log(palindrome(1234));
-console.log(palindrome(333));
-console.log(palindrome(1));
+console.log(palindrome(121)); // true
+console.log(palindrome(1234)); // false
+console.log(palindrome(333)); // true
+console.log(palindrome(1)); // true
 
 // Iterative
 

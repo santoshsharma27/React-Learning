@@ -28,14 +28,7 @@ function countCharacterOccurrences(str) {
   }
 
   // Sort the charCount object alphabetically by character
-  const sortedCharCount = Object.keys(charCount)
-    .sort()
-    .reduce((acc, key) => {
-      acc[key] = charCount[key];
-      return acc;
-    }, {});
-
-  return sortedCharCount;
+  return Object.entries(charCount).sort(([a], [b]) => a.localeCompare(b));
 }
 
 // Example usage:

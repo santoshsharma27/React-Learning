@@ -7,7 +7,7 @@ var singleNumber = function (nums) {
 
   for (let num of nums) {
     if (output[num]) {
-      output[num] += 1;
+      output[num]++;
     } else {
       output[num] = 1;
     }

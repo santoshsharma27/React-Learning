@@ -1,4 +1,4 @@
-function getData(obj, finalArr) {
+function getData(obj, finalArr = []) {
   for (let key in obj) {
     if (!Array.isArray(obj[key])) {
       finalArr.push(obj[key]);
@@ -25,4 +25,4 @@ let obj = {
   ],
 };
 
-console.log(getData(obj, [])); // [ 'bob1', 'bob2', 'bob3' ]
+console.log(getData(obj)); // [ 'bob1', 'bob2', 'bob3' ]

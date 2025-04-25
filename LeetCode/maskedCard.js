@@ -30,4 +30,4 @@ const maskCreditCard = function (number) {
 };
 
 console.log(maskCreditCard(64637836)); // ****7836
-console.log(maskCreditCard(43378463864647384)); // *************7384
+console.log(maskCreditCard(1234567812345678)); // *************7384

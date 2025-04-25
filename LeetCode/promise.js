@@ -21,4 +21,4 @@ let p1 = new Promise((resolve, reject) => {
 
 p1.then((user) => {
   console.log(user);
-}).catch((err) => console.log(err));
+}).catch((err) => console.log(err)); // { userName: "Santosh", password: "12345" }

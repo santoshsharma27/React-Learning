@@ -1,7 +1,7 @@
 function palindrome(str) {
   let res = "";
-  const length = str.length;
-  for (let i = length - 1; i >= 0; i--) {
+  const n = str.length;
+  for (let i = n - 1; i >= 0; i--) {
     res += str[i];
   }
 
@@ -23,10 +23,10 @@ console.log(palindrome2("santosh")); // false
 //////////////////////////
 
 function palindrome3(str) {
-  const len = str.length;
+  const n = str.length;
 
-  for (let i = 0; i < len / 2; i++) {
-    if (str[i] !== str[len - 1 - i]) {
+  for (let i = 0; i < n / 2; i++) {
+    if (str[i] !== str[n - 1 - i]) {
       return false;
     }
   }

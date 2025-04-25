@@ -5,7 +5,7 @@ function generateOTP(length = 6) {
     console.log(random);
     otp += random;
   }
-  return otp;
+  return +otp; // convert to number
 }
 
 // Example usage
