@@ -8,17 +8,20 @@ console.log(ascending([4, 3, 5, 2, 1])); // [ 1, 2, 3, 4, 5 ]
 
 function bubbleSort(arr) {
   let n = arr.length;
-
-  for (let i = 0; i < n - 1; i++) {
-    for (let j = 0; j < n - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        // Swap
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < n - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        // Swap the elements
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = true;
       }
     }
-  }
+  } while (swapped);
+
   return arr;
 }
 

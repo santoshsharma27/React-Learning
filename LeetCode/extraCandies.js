@@ -25,3 +25,18 @@ function kidsWithCandies(candies, extraCandies) {
 }
 
 console.log(kidsWithCandies([2, 3, 5, 1, 3], 3)); // [ true, true, true, false, true ]
+
+// Second way
+
+function kidsWithCandies(candies, extraCandies) {
+  const result = [];
+  let highest = Math.max(...candies); // Find max directly
+
+  for (let candy of candies) {
+    result.push(candy + extraCandies >= highest);
+  }
+
+  return result;
+}
+
+console.log(kidsWithCandies([2, 3, 5, 1, 3], 3)); // [ true, true, true, false, true ]
