@@ -21,11 +21,7 @@ function isAnagram(str1, str2) {
 
   // Count characters in str1
   for (let char of str1) {
-    if (charCount[char]) {
-      charCount[char]++;
-    } else {
-      charCount[char] = 1;
-    }
+    charCount[char] = (charCount[char] ?? 0) + 1;
   }
 
   // Subtract characters using str2

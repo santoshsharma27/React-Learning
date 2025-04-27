@@ -5,6 +5,16 @@ const data = [
   { name: "Tara", age: 30 },
 ];
 
+// Using inbuilt method
+
+function customSortAndFilter1(arr) {
+  return arr.filter((item) => item.age > 18).sort((a, b) => a.age - b.age);
+}
+
+console.log(customSortAndFilter1(data)); // [ { name: 'Santosh', age: 20 }, { name: 'Tara', age: 30 },  { name: 'Bharat', age: 40 } ]
+
+/////////////////////////////////
+
 function customSortAndFilter(arr) {
   // Step 1: Filter age > 18 manually
   const filtered = [];
@@ -15,10 +25,11 @@ function customSortAndFilter(arr) {
   }
 
   // Step 2: Sort manually using Bubble Sort
+  let n = filtered.length;
   let swapped;
   do {
     swapped = false;
-    for (let j = 0; j < filtered.length - 1; j++) {
+    for (let j = 0; j < n - 1; j++) {
       if (filtered[j].age > filtered[j + 1].age) {
         // Swap the objects
         let temp = filtered[j];

@@ -14,6 +14,15 @@ console.log(countkeyInAarray(arr, 2)); // 3
 // For String
 
 function countCharacterOccurrences(str) {
+  return [...str].reduce((acc, curr) => {
+    acc[curr] = (acc[curr] ?? 0) + 1;
+    return acc;
+  }, {});
+}
+
+console.log(countCharacterOccurrences("santosh"));
+
+function countCharacterOccurrences(str) {
   str = str.toLowerCase();
   let charCount = {};
 
