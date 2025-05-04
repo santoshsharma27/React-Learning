@@ -13,6 +13,7 @@ import Traffic from "./components/Traffic";
 import Expander from "./components/TextExpander/Expander";
 import NavBar from "./components/NavBar";
 import NestedCheckBox from "./components/NestedCheckBox";
+import Drag from "./components/dragDrop/Drag";
 // import Pagination from "./components/pagination/Pagination";
 
 // Lazy Loading
@@ -45,6 +46,7 @@ function App() {
         <Route path="traffic" element={<Traffic />} />
         <Route path="textExpander" element={<Expander />} />
         <Route path="checkbox" element={<NestedCheckBox />} />
+        <Route path="drag" element={<Drag />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

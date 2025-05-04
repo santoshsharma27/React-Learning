@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <>
-      <div className="fixed left-0 right-0 top-0 z-50 bg-gray-800 shadow-md">
+      <div className="fixed top-0 right-0 left-0 z-50 bg-gray-800 shadow-md">
         <nav className="flex items-center justify-around p-4">
           <div className="flex gap-12">
             <Link
@@ -59,6 +59,12 @@ function NavBar() {
               className="text-white transition duration-300 hover:text-gray-300"
             >
               Pagination
+            </Link>
+            <Link
+              to="/drag"
+              className="text-white transition duration-300 hover:text-gray-300"
+            >
+              Drag&Drop
             </Link>
           </div>
         </nav>

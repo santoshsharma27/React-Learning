@@ -50,7 +50,7 @@ function calculateAverageScores(data) {
 
 const result = calculateAverageScores(input);
 
-console.log([result]);
+console.log([result]); // [ { jaya: '2.3', jay: '2.0', jazz: '1.3' } ]
 
 // =====================
 const arr1 = [2, 5, 3, 21];

@@ -5,53 +5,71 @@ import MemeCard from "./MemeCard";
 function Home() {
   const [memes, setMemes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(1); // Add a page state to control pagination
+  const [page, setPage] = useState(1);
+  const [showTopBtn, setShowTopBtn] = useState(false);
 
-  async function fetchMemes() {
+  const fetchMemes = async () => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       const res = await fetch(`https://meme-api.com/gimme/20?page=${page}`);
-
-      if (!res.ok) throw new Error("Something went wrong with fetching memes");
-
+      if (!res.ok) throw new Error("Failed to fetch memes");
       const data = await res.json();
-
-      setMemes((prevMemes) => [...prevMemes, ...data.memes]);
-      setPage((prevPage) => prevPage + 1); // Increment page for next fetch
+      setMemes((prev) => [...prev, ...data.memes]);
+      setPage((prev) => prev + 1);
+      console.log(data.memes);
     } catch (err) {
       console.log(err.message);
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
+  // Initial fetch
   useEffect(() => {
     fetchMemes();
-  }, []); // Only call on initial render
+  }, []);
 
+  // Infinite scroll
   useEffect(() => {
     const handleScroll = () => {
-      //scrollY - how much I have scrolled
-      // innerHeight - height of the window(visible setion)
-      // document.body.scrollHeight - total height of the web page
       if (
-        window.scrollY + window.innerHeight >=
-        document.body.scrollHeight - 100
+        !isLoading &&
+        window.scrollY + window.innerHeight >= document.body.scrollHeight - 100
       ) {
         fetchMemes();
       }
+      setShowTopBtn(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isLoading, page]); // Track changes in isLoading and page
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <div className="flex flex-wrap justify-center pt-5">
-      {memes.map((meme, i) => (
-        <MemeCard key={i} meme={meme} />
-      ))}
-      {isLoading && <Shimmer />}
+    <div className="relative min-h-screen">
+      {memes.length === 0 && isLoading ? (
+        <Shimmer />
+      ) : (
+        <div className="flex flex-wrap justify-center pt-5">
+          {memes.map((meme, i) => (
+            <MemeCard key={i} meme={meme} />
+          ))}
+        </div>
+      )}
+
+      {showTopBtn && (
+        <button
+          onClick={scrollToTop}
+          className="fixed right-6 bottom-6 z-50 rounded-full bg-blue-600 p-3 text-white shadow-md transition hover:bg-blue-700"
+          title="Back to Top"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }

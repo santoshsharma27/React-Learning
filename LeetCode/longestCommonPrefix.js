@@ -1,12 +1,11 @@
-var longestCommonPrefix = function (strs) {
-  if (!strs.length) return "";
+var longestCommonPrefix = function (arr) {
+  if (!arr.length) return "";
 
-  let prefix = strs[0];
+  let prefix = arr[0];
 
-  for (let str of strs) {
-    while (!str.startsWith(prefix)) {
+  for (let i = 1; i < arr.length; i++) {
+    while (!arr[i].startsWith(prefix)) {
       prefix = prefix.slice(0, -1);
-      console.log(prefix);
       if (!prefix) return "";
     }
   }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FileUpload from "./FileUpload";
 
 function Order() {
   const [showInput, setShowInput] = useState(false);
@@ -62,6 +63,9 @@ function Order() {
             No
           </label>
         </div>
+      </div>
+      <div className="mt-32 p-2">
+        <FileUpload />
       </div>
     </div>
   );

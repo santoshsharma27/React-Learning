@@ -24,9 +24,9 @@ function palindrome2(num) {
   let rev = 0;
 
   while (num > 0) {
-    let lastDigit = num % 10;
-    rev = rev * 10 + lastDigit;
-    num = Math.floor(num / 10);
+    let lastDigit = num % 10; // Extract the last digit
+    rev = rev * 10 + lastDigit; // Append digit to reversed number
+    num = Math.floor(num / 10); // Remove the last digit
   }
 
   // Check if the original number is the same as the reversed number

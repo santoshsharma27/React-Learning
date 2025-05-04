@@ -261,25 +261,22 @@ vowelCounts()
 ================================================================================================================================================================================
 Code 18:To find character occurance fro the string
 function characterOccurance(str,letter){
-   let count =0;
-  for(var i=0; i<str.length-1; i++){
-    if(str.charAt(i)===letter)
-      {
-        count++
-      }
-  }
-  console.log(count)
-  return count
+  let count =0;
+ for(let i=0; i<str.length-1; i++){
+   if(str[i]===letter)
+     {
+       count++
+     }
+ }
+ console.log(count)
+ return count
 }
 characterOccurance("priyapri", "p")
 ================================================================================================================================================================================
 Code 19: To find a first pair whose sum is zero
-function getSumPairZero(array)
-{
-  for(let number of array)
-  {
-     for(let i=1; i<array.length; i++)
-     {
+function getSumPairZero(array){
+  for(let number of array){
+     for(let i=1; i<array.length; i++){
          if(number+array[i]===0)
          {
             return [number, array[i]]

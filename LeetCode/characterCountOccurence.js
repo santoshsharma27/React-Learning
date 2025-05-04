@@ -14,13 +14,13 @@ console.log(countkeyInAarray(arr, 2)); // 3
 // For String
 
 function countCharacterOccurrences(str) {
-  return [...str].reduce((acc, curr) => {
+  return str.split("").reduce((acc, curr) => {
     acc[curr] = (acc[curr] ?? 0) + 1;
     return acc;
   }, {});
 }
 
-console.log(countCharacterOccurrences("santosh"));
+console.log(countCharacterOccurrences("santosh")); // { s: 2, a: 1, n: 1, t: 1, o: 1, h: 1 }
 
 function countCharacterOccurrences(str) {
   str = str.toLowerCase();

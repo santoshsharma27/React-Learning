@@ -1,9 +1,9 @@
 function bubbleSort(arr) {
-  const arrLength = arr.length;
+  const n = arr.length;
   let swapped;
   do {
     swapped = false;
-    for (let i = 0; i < arrLength - 1; i++) {
+    for (let i = 0; i < n - 1; i++) {
       if (arr[i] > arr[i + 1]) {
         let temp = arr[i];
         arr[i] = arr[i + 1];
