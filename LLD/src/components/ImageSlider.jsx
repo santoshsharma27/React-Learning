@@ -27,7 +27,7 @@ const ImageSlider = () => {
       {/* Left Arrow */}
       <button
         onClick={loadPrevImage}
-        className="absolute left-4 top-1/2 -translate-y-1/2 transform rounded-full bg-black bg-opacity-50 p-2 text-4xl text-white transition-all duration-300 hover:bg-opacity-100"
+        className="bg-opacity-50 hover:bg-opacity-100 absolute top-1/2 left-4 -translate-y-1/2 transform cursor-pointer rounded-full bg-black p-2 text-4xl text-white transition-all duration-300"
         aria-label="Previous Image"
       >
         <HiChevronLeft />
@@ -45,7 +45,7 @@ const ImageSlider = () => {
       {/* Right Arrow */}
       <button
         onClick={loadNextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 transform rounded-full bg-black bg-opacity-50 p-2 text-4xl text-white transition-all duration-300 hover:bg-opacity-100"
+        className="bg-opacity-50 hover:bg-opacity-100 absolute top-1/2 right-4 -translate-y-1/2 transform cursor-pointer rounded-full bg-black p-2 text-4xl text-white transition-all duration-300"
         aria-label="Next Image"
       >
         <HiChevronRight />

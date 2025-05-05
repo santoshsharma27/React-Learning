@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 function MemeCard({ meme }) {
   const { url, author, title } = meme;
 
@@ -21,5 +21,13 @@ function MemeCard({ meme }) {
     </div>
   );
 }
+
+MemeCard.propTypes = {
+  meme: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    title: PropTypes.string,
+  }).isRequired,
+};
 
 export default MemeCard;

@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import PropTypes from "prop-types";
 
 const EmployeeProfile = memo(function EmployeeProfile({ name, email }) {
   console.log("Rendering EmployeeProfile...");
@@ -9,6 +10,11 @@ const EmployeeProfile = memo(function EmployeeProfile({ name, email }) {
     </>
   );
 });
+
+EmployeeProfile.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+};
 
 export default function EmployeeRegForm() {
   const [name, setName] = useState("");
