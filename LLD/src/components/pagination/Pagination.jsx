@@ -11,14 +11,13 @@ function Pagination() {
 
   const totalProducts = products.length;
   const noOfPages = Math.ceil(totalProducts / PAGE_SIZE);
-  const start = currentPage * PAGE_SIZE;
-  const end = start + PAGE_SIZE;
+  const start = currentPage * PAGE_SIZE; // 0 * 10 = 0
+  const end = start + PAGE_SIZE; // 0 + 10 = 10
 
   async function fetchProducts() {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       setError(null);
-
       const res = await fetch("https://dummyjson.com/products?limit=200");
       if (!res.ok)
         throw new Error("Something went wrong while fetching products");
@@ -33,7 +32,6 @@ function Pagination() {
   }
 
   useEffect(() => {
-    console.log("Fetching API...");
     fetchProducts();
   }, []);
 

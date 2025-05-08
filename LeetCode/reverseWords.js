@@ -17,7 +17,7 @@ function reverseLetters(str) {
   return result.trim(); // Remove the trailing space
 }
 
-console.log(reverseLetters("santosh kumar")); // hsotnas ramuk
+console.log(reverseLetters("Hello World")); // "olleH dlroW"
 
 // Second way
 

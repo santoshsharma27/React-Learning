@@ -24,12 +24,12 @@ console.log(identityFour<string>("Hello")); // Returns string
 
 interface Bottle {
   brand: string;
-  type: number;
+  price: number;
 }
 
 identityFour<Bottle>({
   brand: "Milton",
-  type: 1245,
+  price: 900,
 });
 
 function getFirstElement<T>(arr: T[]): T {
