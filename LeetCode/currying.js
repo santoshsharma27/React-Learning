@@ -9,3 +9,5 @@ function sum(a) {
 }
 
 console.log(sum(1)(2)(3)()); // 6
+
+// This is infinite currying
