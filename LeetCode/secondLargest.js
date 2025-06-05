@@ -4,20 +4,25 @@ function secondLargest(arr) {
   return sorted[1];
 }
 
-console.log(secondLargest([1, 8, 4, 5, 10, 10]));
+console.log(secondLargest([1, 8, 4, 5, 10, 10])); // 8
 
 /////////////////////////////////////
 
 function secondLargest2(arr) {
   arr = [...new Set(arr)];
-  let largest = -Infinity;
+
+  if (arr.length < 2) {
+    return arr;
+  }
+
+  let firstLargest = -Infinity;
   let secondLargest = -Infinity;
 
   for (const num of arr) {
-    if (num > largest) {
-      secondLargest = largest;
-      largest = num;
-    } else if (num > secondLargest && num < largest) {
+    if (num > firstLargest) {
+      secondLargest = firstLargest;
+      firstLargest = num;
+    } else if (num > secondLargest) {
       secondLargest = num;
     }
   }
@@ -25,4 +30,4 @@ function secondLargest2(arr) {
   return secondLargest;
 }
 
-console.log(secondLargest2([1, 8, 4, 5, 10, 10]));
+console.log(secondLargest2([1, 8, 4, 5, 10, 10])); // 8

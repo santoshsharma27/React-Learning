@@ -17,7 +17,7 @@ console.log(palindrome(1)); // true
 
 function palindrome2(num) {
   if (num < 0) {
-    return false; // Negative numbers are not considered palindromes
+    return false;
   }
 
   let originalNum = num; // Store the original number

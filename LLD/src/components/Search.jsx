@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Tesco from "../Tesco";
 
 function Search() {
   const [searchText, setSearchText] = useState("");
