@@ -27,7 +27,7 @@ function Search() {
 
       try {
         setIsLoading(true);
-        setError("");
+        setError(null);
         const res = await fetch(
           `https://www.google.com/complete/search?client=firefox&q=${searchText}`,
           { signal },
