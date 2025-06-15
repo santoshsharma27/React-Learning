@@ -103,11 +103,11 @@ greet.myApply(person, ["Hello", "Sharma"]); // Output: "Hello, Santosh Sharma"
 Function.prototype.myBind = function (context = {}, ...args) {
   if (typeof this !== "function") {
     throw new Error(
-      "It is not callable. Ensure you're calling myApply on a function."
+      "It is not callable. Ensure you're calling myBind on a function."
     );
   }
 
-  context.fn = this;
+  context.fn = this; // Temporarily assign the function to context
   return function (...newArgs) {
     return context.fn(...args, ...newArgs);
   };

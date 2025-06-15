@@ -10,9 +10,9 @@ function App() {
     setTodos((prev) => [...prev, { id: Date.now(), ...todo }]);
   };
 
-  const updateTodo = (id, todo) => {
-    setTodos((prev) =>
-      prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo))
+  const updateTodo = (id, updatedTodo) => {
+    setTodos((todos) =>
+      todos.map((todo) => (todo.id === id ? updatedTodo : todo))
     );
   };
 
@@ -21,11 +21,9 @@ function App() {
   };
 
   const toggleComplete = (id) => {
-    setTodos((prev) =>
-      prev.map((prevTodo) =>
-        prevTodo.id === id
-          ? { ...prevTodo, completed: !prevTodo.completed }
-          : prevTodo
+    setTodos((todos) =>
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };

@@ -65,7 +65,7 @@ function capitalFirstLetter(str) {
   if (str.includes(" ")) {
     const output = str
       .split(" ")
-      .map((item) => item.slice(0, 1).toUpperCase() + item.slice(1));
+      .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1));
     return output.join(" ");
   } else {
     return str.slice(0, 1).toUpperCase() + str.slice(1);
