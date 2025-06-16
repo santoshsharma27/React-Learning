@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EmployeeRegForm from "./pureComponent";
+import Otp from "./Otp";
 
 const arr = ["apple", "orange", "banana"];
 
@@ -22,7 +23,7 @@ function Cart() {
 
   return (
     <>
-      <EmployeeRegForm />
+      {/* <EmployeeRegForm />
       <div className="p-10 text-center">
         Cart Page, You can see this page because you&apos;re an authenticated
         user
@@ -39,7 +40,8 @@ function Cart() {
         {matchedFruits && (
           <div className="mt-2 text-green-500">Found: {matchedFruits}</div>
         )}
-      </div>
+      </div> */}
+      <Otp />
     </>
   );
 }
