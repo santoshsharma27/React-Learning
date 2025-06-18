@@ -5,6 +5,22 @@ import Application from "./Application";
 import React from "react";
 
 describe("Application", () => {
+  beforeAll(() => {
+    console.log("Before All");
+  });
+
+  beforeEach(() => {
+    console.log("Before Each");
+  });
+
+  afterEach(() => {
+    console.log("After Each");
+  });
+
+  afterAll(() => {
+    console.log("After All");
+  });
+
   test("renders", () => {
     render(<Application />);
 
