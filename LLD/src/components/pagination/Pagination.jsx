@@ -16,8 +16,8 @@ function Pagination() {
 
   async function fetchProducts() {
     setIsLoading(true);
+    setError(null);
     try {
-      setError(null);
       const res = await fetch("https://dummyjson.com/products?limit=200");
       if (!res.ok)
         throw new Error("Something went wrong while fetching products");
@@ -75,7 +75,7 @@ function Pagination() {
               {"<"}
             </button>
 
-            {[...Array(noOfPages).keys()].map((index) => (
+            {Array.from({ length: noOfPages }).map((_, index) => (
               <button
                 className={`rounded-md px-2 text-lg font-semibold transition duration-300 ${
                   index === currentPage

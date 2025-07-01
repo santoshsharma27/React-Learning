@@ -12,7 +12,7 @@ function secondLargest2(arr) {
   arr = [...new Set(arr)];
 
   if (arr.length < 2) {
-    return arr;
+    return "Array should have at least two numbers";
   }
 
   let firstLargest = -Infinity;
@@ -22,7 +22,7 @@ function secondLargest2(arr) {
     if (num > firstLargest) {
       secondLargest = firstLargest;
       firstLargest = num;
-    } else if (num > secondLargest) {
+    } else if (num > secondLargest && num !== firstLargest) {
       secondLargest = num;
     }
   }

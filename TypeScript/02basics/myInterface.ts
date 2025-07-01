@@ -1,3 +1,10 @@
+/*
+Used to define the shape of an object.
+Can be extended (inherited) by other interfaces.
+Can be merged (declarations with the same name get merged).
+Ideal for defining class structures and object models.
+*/
+
 interface User {
   readonly dbId: number;
   email: string;

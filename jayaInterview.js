@@ -1374,3 +1374,32 @@ test('renders the heading and button', () => {
   expect(buttonElement).toBeInTheDocument();
   expect(buttonElement).toHaveTextContent('Click Me');
 });
+
+
+// UserIdDisplay.jsx
+import React from "react";
+import { nanoid } from "nanoid";
+
+const UserIdDisplay = () => {
+  const id = nanoid();
+  return <p data-testid="user-id">{id}</p>;
+};
+
+export default UserIdDisplay;
+
+
+// UserIdDisplay.test.jsx
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import UserIdDisplay from "./UserIdDisplay";
+
+//  Mock nanoid to return predictable output
+jest.mock("nanoid", () => ({
+  nanoid: jest.fn(() => "mocked-id-001"),
+}));
+
+test("should render mocked nanoid id", () => {
+  render(<UserIdDisplay />);
+  const paragraph = screen.getByTestId("user-id");
+  expect(paragraph).toHaveTextContent("mocked-id-001");
+});

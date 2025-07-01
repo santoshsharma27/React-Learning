@@ -10,4 +10,14 @@ const newUser: User = [123, "Santosh"];
 
 // const newUser: User = ["Santosh",123];
 
+// With Optional and Rest Elements
+type Person = [string, number?, ...boolean[]];
+
+let p1: Person = ["Bob"];
+let p2: Person = ["Alice", 30, true, false];
+
 export {};
+
+/*
+Tuples allow us to define a fixed-length array with known types at each index.
+*/

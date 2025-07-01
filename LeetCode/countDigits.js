@@ -13,3 +13,4 @@ function countDigits(num) {
 
 console.log(countDigits(123)); // Output: 3
 console.log(countDigits(-123)); // Output: 3
+console.log(countDigits(0)); // 1

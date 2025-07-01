@@ -67,3 +67,21 @@ type Employee = Person & {
 const emp: Employee = { name: "Santosh", role: "Developer" };
 
 export {};
+
+/*
+
+A more flexible and general way to define types. It can represent:
+
+Primitives
+
+Unions
+
+Intersections
+
+Tuples
+
+Functions
+
+Object shapes (like interfaces)
+
+*/
