@@ -17,6 +17,8 @@ function multiply(arr) {
 console.log(multiply([1, 2, 3])); // [6, 3, 2]
 console.log(multiply([1, 2, 3, 4])); // [24, 12, 8, 6]
 
+// Time Complexity: O(n^2)
+
 // ===================================================
 
 function multiply2(arr) {
@@ -41,6 +43,8 @@ function multiply2(arr) {
 }
 
 console.log(multiply2([1, 2, 3, 4])); // [24, 12, 8, 6]
+
+// ===================================================
 
 function getData(obj, finalArr = []) {
   for (let key in obj) {
