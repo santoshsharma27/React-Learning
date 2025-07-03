@@ -7,5 +7,5 @@ function power(base, exponent) {
   return base * power(base, exponent - 1);
 }
 
-console.log(power(2, 5));
-console.log(power(3, 3));
+console.log(power(2, 5)); // Output: 32 (2⁵)
+console.log(power(3, 3)); // Output: 27 (3³)

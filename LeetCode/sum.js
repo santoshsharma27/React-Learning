@@ -5,7 +5,7 @@ function sum(num) {
   return num + sum(num - 1);
 }
 
-console.log(sum(5));
+console.log(sum(5)); // 15
 
 // Iterative
 
@@ -18,7 +18,7 @@ function sum2(num) {
   return res;
 }
 
-console.log(sum2(5));
+console.log(sum2(5)); // 15
 
 // Using reduce
 
@@ -26,4 +26,4 @@ function sum3(...num) {
   return num.reduce((acc, curr) => acc + curr, 0);
 }
 
-console.log(sum3(1, 2, 3, 4, 5));
+console.log(sum3(1, 2, 3, 4, 5)); // 15
