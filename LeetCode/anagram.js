@@ -35,4 +35,7 @@ function isAnagram(str1, str2) {
   return true;
 }
 
-console.log(isAnagram("abcd", "bdca")); // true
+console.log(isAnagram("listen", "silent")); // true
+console.log(isAnagram("triangle", "integral")); // true
+console.log(isAnagram("apple", "pale")); // false
+console.log(isAnagram("rat", "car")); // false

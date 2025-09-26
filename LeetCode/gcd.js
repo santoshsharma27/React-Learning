@@ -16,7 +16,15 @@ function gcd(num1, num2) {
   }
 }
 
-console.log(gcd(42, 18));
+console.log(gcd(42, 18)); // 6
+
+function gcd(a, b) {
+  if (b === 0) return a;
+  return gcd(b, a % b);
+}
+
+console.log(gcd(42, 18)); // 6
+console.log(gcd(1000000, 2)); // 2
 
 /*
 By subtracting the smaller number from the larger one, this approach reduces the problem size with each call until both numbers 

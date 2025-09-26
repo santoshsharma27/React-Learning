@@ -47,3 +47,26 @@ function removeDuplicates(arr) {
 }
 
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+
+function removeDuplicates(nums) {
+  if (nums.length === 0) return 0;
+
+  let x = 0; // slow pointer
+
+  for (let i = 1; i < nums.length; i++) {
+    // fast pointer
+    if (nums[i] !== nums[x]) {
+      x++; // move slow pointer
+      nums[x] = nums[i]; // move unique element forward
+    }
+  }
+
+  return x + 1; // length of array without duplicates
+}
+
+// Example
+let arr1 = [1, 1, 2, 2, 3, 4, 4, 5];
+let newLength = removeDuplicates(arr1);
+
+console.log(newLength); // 5
+console.log(arr1.slice(0, newLength)); // [1, 2, 3, 4, 5]

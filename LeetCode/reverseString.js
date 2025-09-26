@@ -25,7 +25,7 @@ function recursiveReverseString(str) {
     return "";
   }
 
-  return recursiveReverseString(str.substring(1)) + str.charAt(0);
+  return recursiveReverseString(str.slice(1)) + str.charAt(0);
 }
 
 console.log(recursiveReverseString("Hello")); // olleH

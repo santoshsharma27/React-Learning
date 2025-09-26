@@ -33,7 +33,7 @@ function fibonacci2(n) {
 
 console.log(fibonacci2(6)); // [ 0, 1, 1, 2, 3, 5, 8]
 
-// Recursive
+// Recursive is not good approach
 
 function recursiveFibonacci(num) {
   if (num < 2) {
@@ -44,3 +44,5 @@ function recursiveFibonacci(num) {
 }
 
 console.log(recursiveFibonacci(6)); // 8
+
+// Time Complexity: O(2^n)
