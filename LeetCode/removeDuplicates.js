@@ -48,6 +48,8 @@ function removeDuplicates(arr) {
 
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 
+// Remove Duplicates in place and on sorted array
+
 function removeDuplicates(nums) {
   if (nums.length === 0) return 0;
 

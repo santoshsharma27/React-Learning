@@ -1,10 +1,8 @@
 function reverseNumber(num) {
-  let rev = 0;
-
   // Handle negative numbers
   const isNegative = num < 0;
   num = Math.abs(num); // Work with the absolute value
-
+  let rev = 0;
   while (num > 0) {
     let lastDigit = num % 10; // Get the last digit
     rev = rev * 10 + lastDigit;

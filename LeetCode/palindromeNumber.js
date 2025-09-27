@@ -1,7 +1,5 @@
 function palindrome(num) {
-  if (num < 0) {
-    return false; // Negative numbers are not palindromes
-  }
+  if (num < 0) return false; // Negative numbers are not palindromes
 
   const result = +num.toString().split("").reverse().join("");
 
@@ -16,9 +14,7 @@ console.log(palindrome(1)); // true
 // Iterative
 
 function palindrome2(num) {
-  if (num < 0) {
-    return false;
-  }
+  if (num < 0) return false;
 
   let originalNum = num; // Store the original number
   let rev = 0;
