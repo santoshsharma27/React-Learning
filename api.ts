@@ -1,13 +1,3 @@
-import { StepOneSubmit } from "../(protected)/concepting/components/StepOne";
-import { StepThreeData, StepThreePatch } from "../(protected)/concepting/components/StepThree/types";
-import { GenerateImagePayload, RaiValidationPayload } from "../(protected)/generate-lifestyle/components/StepTwo/types";
-import { RequestBodyConcepts, StepTwoData } from "../(protected)/concepting/components/StepTwo/types";
-import { downloadFile, getHeaders, validBrandIds } from "@/lib/utils";
-import { PdpCopyPayload, ProjectDataPayload } from "../(protected)/pdp-copy/components/ProjectCopyList/types";
-import { SortingQueryParams } from "../(protected)/saved-projects/types";
-import { TranslationRequest } from "../(protected)/concepting/components/StepFour/types";
-import { SERVER_CALL_FAILED } from "@/constants/constants";
-
 export async function handleAcceptTnC(isTermsAccepted: boolean) {
   try {
     const response = await fetch("/api/terms-and-conditions-acl", {
