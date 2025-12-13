@@ -8,15 +8,24 @@ enum Direction {
 const dir: Direction = Direction.North; // 0
 
 enum Status {
-  Success = "success",
-  Error = "error",
-  Loading = "loading",
+  SUCCESS = "success",
+  ERROR = "error",
+  LOADING = "loading",
 }
 
-const state: Status = Status.Success; // "success"
+const state: Status = Status.SUCCESS; // "success"
+
+enum ChaiType {
+  MASALA = "masala",
+  GINGER = "ginger",
+}
+
+function makeChai(type: ChaiType) {
+  console.log(`Making: ${type}`);
+}
+
+makeChai(ChaiType.GINGER); // ginger
 
 /*
-Enums are a way to define a set of named constants. They make your code more readable and prevent the use of "magic strings" or 
-"magic numbers".
-
+Enums are a way to define a set of named constants. They make your code more readable and prevent the use of "magic strings" or "magic numbers".
 */
