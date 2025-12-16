@@ -2,16 +2,19 @@ import BasicProps from "./components/BasicProps";
 import ChildrenProps from "./components/ChildrenProps";
 import ComplexProps from "./components/ComplexProps";
 import RefProps from "./components/RefProps";
-import ThemeToggler from "./components/ThemeToggler";
+import ThemeToggler, {
+  ThemeProvider,
+  useTheme,
+} from "./components/ThemeToggler";
 
 function Navigation() {
   const isDark = true;
 
   const sections = [
     { id: "basic", label: "Basic Props", icon: "📦" },
-    { id: "ref", label: "ref Props", icon: "🔗" },
     { id: "children", label: "children Props", icon: "👶" },
     { id: "complex", label: "complex Props", icon: "🧩" },
+    { id: "ref", label: "ref Props", icon: "🔗" },
     { id: "theme", label: "theme Props", icon: "🎨" },
   ];
 
@@ -40,7 +43,7 @@ function Navigation() {
 }
 
 function AppContent() {
-  const isDark = true;
+  const { isDark } = useTheme();
 
   return (
     <div
@@ -103,7 +106,11 @@ function AppContent() {
 }
 
 function App() {
-  return <AppContent />;
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
 }
 
 export default App;
