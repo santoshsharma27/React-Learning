@@ -5,13 +5,39 @@ import QueueDisplay from "./components/QueueDisplay";
 
 export default function App() {
   const [queue, setQueue] = useState(() => {
-    const storedQueue = localStorage.getItem("queue");
-    return storedQueue ? JSON.parse(storedQueue) : [];
+    try {
+      const storedQueue = localStorage.getItem("queue");
+      return storedQueue ? JSON.parse(storedQueue) : [];
+    } catch (error) {
+      console.error("Failed to load queue from localstorage", error);
+      return [];
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem("queue", JSON.stringify(queue));
+    try {
+      localStorage.setItem("queue", JSON.stringify(queue));
+    } catch (error) {
+      console.error("Failed to save queue to localstorage", error);
+    }
   }, [queue]);
+
+  //Sync across tabs
+  useEffect(() => {
+    const handleStorage = (e) => {
+      if (e.key === "queue") {
+        try {
+          const newQueue = JSON.parse(e.newValue || "[]");
+          setQueue(newQueue);
+        } catch (error) {
+          console.error("Failed to parse queue from localstorage", error);
+        }
+      }
+    };
+
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
 
   const addToQueue = (customer) => {
     setQueue((prevQueue) => [

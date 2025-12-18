@@ -409,39 +409,47 @@ console.log(myCounter()); // 3
 =======================================================================================
 Custom Hook
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const useFetch = (url, options = {}) => {
+const useFetch = (url, options) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {    
+    if (!url) return;
+
+    let isMounted = true;
+
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+
       try {
-       setLoading(true);
-       setError(null);
         const response = await fetch(url, options);
         if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
+          throw new Error(`Request failed: ${response.status}`);
         }
         const result = await response.json();
-        setData(result);
-      } catch (error) {
-        setError(error.message);
+        if (isMounted) setData(result);
+      } catch (err) {
+        if (isMounted) setError(err.message);
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     };
 
     fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [url, options]);
 
   return { data, loading, error };
 };
 
 export default useFetch;
-
 
 
 //Used in component

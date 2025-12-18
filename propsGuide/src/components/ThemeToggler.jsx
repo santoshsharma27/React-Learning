@@ -17,9 +17,7 @@ export function ThemeProvider({ children }) {
     isDark: theme === "dark",
   };
 
-  return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
-  );
+  return <ThemeContext value={value}>{children}</ThemeContext>;
 }
 
 // Custom hook to use theme
