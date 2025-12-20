@@ -33,6 +33,7 @@ export function useCart() {
       }
     };
     window.addEventListener("storage", handleStorage);
+
     return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
