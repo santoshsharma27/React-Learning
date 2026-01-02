@@ -1,9 +1,6 @@
 import express from "express";
-import bodyParser from "body-parser";
 
 const app = express();
-
-app.use(bodyParser.json());
 
 app.all("/", (req, res) => {
   res.send(`I am up!`);

@@ -1,6 +1,7 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
+
+const app = express();
 
 const allowedOrigins = [
   "http://127.0.0.1:5501",
@@ -30,6 +31,7 @@ app.get("/list", (req, res) => {
 });
 
 const port = process.env.PORT || 5010;
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

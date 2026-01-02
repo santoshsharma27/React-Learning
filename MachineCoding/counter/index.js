@@ -4,12 +4,15 @@ const changeBy = document.getElementById("changeBy");
 const reset = document.getElementById("reset");
 const value = document.querySelector(".value");
 
+const getValue = () => Number(value.textContent) || 0;
+const getChangeBy = () => Number(changeBy.value) || 1;
+
 increment.addEventListener("click", () => {
-  value.textContent = parseInt(value.textContent) + parseInt(changeBy.value);
+  value.textContent = getValue() + getChangeBy();
 });
 
 decrement.addEventListener("click", () => {
-  value.textContent = parseInt(value.textContent) - parseInt(changeBy.value);
+  value.textContent = getValue() - getChangeBy();
 });
 
 reset.addEventListener("click", () => {
@@ -17,9 +20,7 @@ reset.addEventListener("click", () => {
 });
 
 changeBy.addEventListener("change", () => {
-  const changeByValue = parseInt(changeBy.value);
-
-  if (isNaN(changeByValue) || changeByValue < 0) {
-    changeBy.value = 1; // Reset to 1 if invalid or negative
+  if (getChangeBy() < 1) {
+    changeBy.value = 1;
   }
 });

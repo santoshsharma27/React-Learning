@@ -5,14 +5,21 @@
   </head>
   <body>
     <h1>Child Iframe</h1>
-    <p>Iframe: Click the button below to see a simple clickjacking demonstration.</p>
+    <p>
+      Iframe: Click the button below to see a simple clickjacking demonstration.
+    </p>
 
-    <button style="background-color: red;" onclick="alert('clicked iframe button')">Pay Now</button>
+    <button
+      style="background-color: red"
+      onclick="alert('clicked iframe button')"
+    >
+      Pay Now
+    </button>
 
     <script>
-        if (top != self) {
-            top.location = self.location;
-        }
+      if (top != self) {
+        top.location = self.location;
+      }
     </script>
   </body>
 </html>
