@@ -23,7 +23,7 @@ const data = [
 ];
 
 function Accordion() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <div className="m-auto w-[50%]">
@@ -44,3 +44,36 @@ function Accordion() {
 }
 
 export default Accordion;
+
+// Multiple Accordion Items Open
+
+/*
+function Accordion() {
+  const [openIndexes, setOpenIndexes] = useState([]);
+
+  const toggleAccordion = (index) => {
+    setOpenIndexes((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index) // close
+        : [...prev, index] // open
+    );
+  };
+
+  return (
+    <div className="m-auto w-[50%]">
+      <h1 className="text-center text-2xl font-extrabold">Multi-Open Accordion</h1>
+
+      {data.map((item, index) => (
+        <AccordionItem
+          key={item.id}
+          title={item.title}
+          description={item.description}
+          isOpen={openIndexes.includes(index)}
+          toggleIsOpen={() => toggleAccordion(index)}
+        />
+      ))}
+    </div>
+  );
+}
+
+*/
