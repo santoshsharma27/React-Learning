@@ -11,7 +11,7 @@ app.use((req, res, next) => {
   // Set the Content Security Policy header
   res.setHeader(
     "Content-Security-Policy",
-    `default-src 'self'; script-src 'self' 'nonce-${nonce}' http://unsecure.com;`
+    `default-src 'self'; script-src 'self' 'nonce-${nonce}' http://unsecure.com;`,
   );
 
   // Pass the nonce to the next middleware (if needed)

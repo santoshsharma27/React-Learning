@@ -1,5 +1,4 @@
 function ProductCard({
-  id,
   title,
   price,
   description,

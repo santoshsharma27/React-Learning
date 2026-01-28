@@ -8,7 +8,7 @@ export const usePostsStore = create((set) => ({
     set({ loading: true, error: null });
     try {
       const res = await fetch(
-        "https://jsonplaceholder.typicode.com/posts?_limit=5"
+        "https://jsonplaceholder.typicode.com/posts?_limit=5",
       );
       if (!res.ok) {
         throw new Error("Network response was not ok");

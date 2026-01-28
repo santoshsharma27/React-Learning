@@ -1,18 +1,17 @@
 function bubbleSort(arr) {
   const n = arr.length;
-  let swapped;
-  do {
-    swapped = false;
-    for (let i = 0; i < n - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-        let temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
+  for (let i = 0; i < n - 1; i++) {
+    let swapped = false;
+
+    for (let j = 0; j < n - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
         swapped = true;
       }
     }
-  } while (swapped);
 
+    if (!swapped) break;
+  }
   return arr;
 }
 

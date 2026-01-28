@@ -5,8 +5,8 @@ const PAGE_SIZE = 10;
 
 function Pagination() {
   const [currentPage, setCurrentPage] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const totalProducts = products.length;
@@ -77,7 +77,7 @@ function Pagination() {
         {/* Pagination Controls */}
         <div className="fixed right-0 bottom-0 left-0 flex items-center justify-center gap-4 bg-white py-4 shadow-md">
           <button
-            className="rounded-md bg-blue-600 px-4 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+            className="cursor-pointer rounded-md bg-blue-600 px-4 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
             onClick={handlePrev}
             disabled={currentPage === 0}
           >
@@ -86,7 +86,7 @@ function Pagination() {
 
           {Array.from({ length: noOfPages }).map((_, index) => (
             <button
-              className={`rounded-md px-2 text-lg font-semibold transition duration-300 ${
+              className={`cursor-pointer rounded-md px-2 text-lg font-semibold transition duration-300 ${
                 index === currentPage
                   ? "bg-blue-600 font-bold text-white"
                   : "text-gray-700 hover:bg-blue-200"
@@ -99,7 +99,7 @@ function Pagination() {
           ))}
 
           <button
-            className="rounded-md bg-blue-600 px-4 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+            className="cursor-pointer rounded-md bg-blue-600 px-4 text-lg text-white shadow-md transition duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-300"
             onClick={handleNext}
             disabled={currentPage === noOfPages - 1}
           >

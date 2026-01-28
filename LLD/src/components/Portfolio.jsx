@@ -51,8 +51,8 @@ export default function Portfolio() {
     social: {
       github: "https://github.com/santoshsharma27",
       linkedin: "https://www.linkedin.com/in/santoshsharma37/",
-      twitter: "https://twitter.com/hiteshdotcom",
-      website: "https://hitesh.ai",
+      twitter: "",
+      website: "",
     },
 
     // Experience Stats

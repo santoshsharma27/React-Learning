@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
 app.use((req, res, next) => {
-  res.setHeader('Permissions-Policy', 'geolocation=()');
+  res.setHeader("Permissions-Policy", "geolocation=()");
   next();
-})
+});
 
-app.get('/page', (req, res) => {
+app.get("/page", (req, res) => {
   res.send(`
   <!DOCTYPE html>
 <html lang="en">
@@ -62,8 +62,8 @@ app.get('/page', (req, res) => {
 </body>
 </html>
 
-  `)
-})
+  `);
+});
 
 const port = process.env.PORT || 5010;
 app.listen(port, () => {
